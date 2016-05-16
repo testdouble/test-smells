@@ -33,6 +33,7 @@ Each file starts with a comment which contains:
 * An enumeration of the problems the smell might indicate
 * For each potential problem, a general prescribed approach for refactoring the
 test (or the test's subject) to eliminate the smell
+* Optionally, a URL pointing to a real-world example of the smell
 
 Remember, not every smell you detect in the wild indicates an actual problem!
 Smells are simply surface indications of common problems and not necessarily
@@ -61,11 +62,13 @@ multiple tests could stand to be reworked.
 
 ### Working with the tests
 
-#### Improve the test
+#### Identify the smell
 
 Once you've read the description of the test smell, try to sniff it out among the
 file listing's tests. Usually, only one will exhibit the smell, but use your own
 judgment to determine which tests should be reworked.
+
+#### Improve the test
 
 Once you've detected a smell, attempt to identify which root cause provided in
 the description is causing the smell and attempt to implement its prescription
@@ -90,3 +93,22 @@ way to write a good test. So long as you've resolved the smell and you feel like
 your changes communicate the intent well, you've probably left things in a better
 state than where you found them.
 
+### Help improve this project
+
+There are several ways you can help us make this repo more useful to other
+developers trying to improve their tests. Here are some ideas of pull requests
+we'd really appreciate for this repo:
+
+1. Additional test smells. I'm sure we didn't catch them all!
+2. URLs pointing to examples of smells. The examples in this repo are necessarily
+minimal, and as a result there is a risk that they won't sufficiently remind
+people of their real-world tests. Additional examples can help people recognize
+the smells in their own code
+3. Feedback about your experience. If you attended a workshop that used this repo
+or if you just took a stab at working through it yourself, please [open an
+issue](https://github.com/testdouble/test-smells/issues/new) to tell us about
+anything else you felt could be improved
+
+If this repo helped you out and you just want to give us a high-five, please say
+hi on [twitter](https://twitter.com/testdouble) or by
+[e-mail](mailto:hello@testdouble.com).
