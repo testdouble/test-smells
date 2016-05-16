@@ -36,7 +36,7 @@ test (or the test's subject) to eliminate the smell
 
 Remember, not every smell you detect in the wild indicates an actual problem!
 Smells are simply surface indications of common problems and not necessarily
-problematic in-and-of-themselves.
+problematic in-and-of themselves.
 
 #### The subject under test
 
@@ -55,7 +55,7 @@ This repo's tests are written for our
 the value of `module.exports` is considered to be "the test" by the test runner.
 If `module.exports` is set to a function, then that's the only test in the file
 listing. If a plain object is assigned to `module.exports`, however, then each
-function on the object is considered its own test. It may be the case that only
+function on the object is considered to be its own test. It may be the case that only
 one of the tests exported by a file exhibit the smell in the description, or that
 multiple tests could stand to be reworked.
 
@@ -64,27 +64,29 @@ multiple tests could stand to be reworked.
 #### Improve the test
 
 Once you've read the description of the test smell, try to sniff it out among the
-file listing's tests.
+file listing's tests. Usually, only one will exhibit the smell, but use your own
+judgment to determine which tests should be reworked.
 
-From there, attempt to identify which root cause in the description is causing
-the smell to emanate and attempt to implement its prescription for reworking
-the test. (In a few cases, a test's improvements will depend on refactoring the
-subject code as well.)
+Once you've detected a smell, attempt to identify which root cause provided in
+the description is causing the smell and attempt to implement its prescription
+for reworking the test. (In a few cases, a test's improvements will depend on
+refactoring the subject code, as well.)
 
 Remember, the tests themselves are untested, so be sure that your
-new-and-improved test still works! Consider forcing the test to break with a
-message that indicates it's working as expected before you commit your changes.
-We like to say, "never trust a test you haven't seen fail," for this reason.
+new-and-improved test still works! Consider forcing the test to break, verifying
+that a message indicates the test is still doing its job before you commit your
+changes. As we like to say, "never trust a test you haven't seen fail."
 
 #### Compare with our solution
 
-We'll maintain a git branch named `solutions` which will tidy up the tests to our
-own likely. If you're interested in seeing our approach to deodorizing a
-particular issue, stash or commit your own changes and `git checkout solutions`
-to take a peek, before switching back to your branch with `git checkout -`.
+This repo contains a git branch named `solutions` which will tidy up the tests to
+our own liking. If you're interested in seeing our approach to deodorizing a
+particular test smell, stash or commit your own changes and `git checkout
+solutions` to take a peek. When you're done, switch back to your branch with `git
+checkout -`.
 
 If your solution doesn't look like ours, don't lose heart! There's more than one
 way to write a good test. So long as you've resolved the smell and you feel like
 your changes communicate the intent well, you've probably left things in a better
-state than you found them in.
+state than where you found them.
 
