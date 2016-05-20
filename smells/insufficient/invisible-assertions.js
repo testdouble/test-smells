@@ -17,12 +17,14 @@
  *                  don't blow up" test for every single method, would you?
  */
 
+// Subject under test
 function is21(person) {
   if (person.age < 21) {
     throw new Error('Sorry, adults only!')
   }
 }
 
+// Test
 module.exports = {
   is21: function () {
     var person = { age: 21 }
