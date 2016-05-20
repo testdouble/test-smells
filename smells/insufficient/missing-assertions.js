@@ -8,7 +8,6 @@ function fetch (id) {
   return item
 }
 
-
 // Test
 module.exports = {
   getsTheItem: function () {
@@ -20,9 +19,8 @@ module.exports = {
 
 // Fake production implementations to simplify example test of subject
 function find (id) {
-  if (id == 42) {
+  if (id === 42) {
     return Object.create({ name: 'Fred' })
   }
 }
-
 

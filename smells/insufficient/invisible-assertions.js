@@ -18,7 +18,7 @@
  */
 
 // Subject under test
-function is21(person) {
+function is21 (person) {
   if (person.age < 21) {
     throw new Error('Sorry, adults only!')
   }
