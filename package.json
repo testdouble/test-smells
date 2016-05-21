@@ -29,5 +29,8 @@
     "globals": [
       "assert"
     ]
+  },
+  "dependencies": {
+    "lodash": "^4.12.0"
   }
 }

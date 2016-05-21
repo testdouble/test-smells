@@ -1,1 +1,1 @@
-global.assert = require('assert')
+global.assert = require('./decorate-assertions')(require('assert'))
