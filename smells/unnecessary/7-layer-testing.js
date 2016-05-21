@@ -31,7 +31,6 @@ function transactionProfit (transaction) {
   return Math.round(transaction.price - transaction.cost)
 }
 
-
 // Test
 module.exports = {
   computesAnnualProfit: function () {

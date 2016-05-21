@@ -56,8 +56,8 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
-_ = require('lodash')
+// Fake production implementation to add context to the subject
+var _ = require('lodash')
 function csvFor (value) {
   if (typeof value === 'string') {
     return escapeCsvStringValue(value)
@@ -71,3 +71,7 @@ function csvFor (value) {
     return value
   }
 }
+
+// Example use:
+csvFor([['id', 'name', 'bio'], [1, 'joe', 'why, hello "joe"!']])
+// => 'id,name,bio\n1,joe,"why, hello ""joe""!"'
