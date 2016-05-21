@@ -1,5 +1,8 @@
 # Test Smells
 
+[![Build Status](https://travis-ci.org/testdouble/test-smells.svg?branch=master)](https://travis-ci.org/testdouble/test-smells)
+[![Build status](https://ci.appveyor.com/api/projects/status/4bj4uiu7q894scg2/branch/master?svg=true)](https://ci.appveyor.com/project/searls/test-smells/branch/master)
+
 This repository is designed to serve as a sandbox for exploring a handful of test
 smells that are common in real-world test suites.
 
