@@ -19,27 +19,15 @@ function pricingForCode(code) {
 }
 
 // Test
+var _ = require('lodash')
 var generateCode = require('../../support/generate-code')
-module.exports = {
-  codeOneIsCorrect: function () {
-    var code = generateCode.one()
 
-    var result = pricingForCode(code)
-
-    assert.codePricing(result, code)
-  },
-  codeTwoIsCorrect: function () {
-    var code = generateCode.two()
-
-    var result = pricingForCode(code)
-
-    assert.codePricing(result, code)
-  },
-  codeThreeIsCorrect: function () {
-    var code = generateCode.three()
+module.exports = _.transform(['one', 'two', 'three'], function (test, testCase) {
+  test['code' + testCase + 'IsCorrect'] = function () {
+    var code = generateCode[testCase]()
 
     var result = pricingForCode(code)
 
     assert.codePricing(result, code)
   }
-}
+}, {})
