@@ -1,4 +1,4 @@
-/* Smell:
+/* Smell: Complex Assertions
  */
 
 // Subject under test
@@ -31,7 +31,6 @@ module.exports = {
   },
   incrementsKidsAgeToo: function () {
     var people = [
-      {name: 'Jane', age: 39},
       {name: 'Joe', age: 42, kids: [
         {name: 'Jack', age: 8},
         {name: 'Jill', age: 7}
@@ -40,13 +39,9 @@ module.exports = {
 
     var results = incrementAge(people)
 
-    var jane = results.find(function (person) { return person.name === 'Jane' })
-    assert.equal(jane.age, 40)
-    var joe = results.find(function (person) { return person.name === 'Joe' })
-    assert.equal(joe.age, 43)
-    var jack = joe.kids.find(function (person) { return person.name === 'Jack' })
+    var jack = results[0].find(function (person) { return person.name === 'Jack' })
     assert.equal(jack.age, 9)
-    var jill = joe.kids.find(function (person) { return person.name === 'Jill' })
+    var jill = results[0].find(function (person) { return person.name === 'Jill' })
     assert.equal(jill.age, 8)
   }
 }
