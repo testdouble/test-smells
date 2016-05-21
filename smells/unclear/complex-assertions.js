@@ -39,9 +39,13 @@ module.exports = {
 
     var results = incrementAge(people)
 
-    var jack = results[0].find(function (person) { return person.name === 'Jack' })
+    var jack = results[0].kids.find(function (person) {
+      return person.name === 'Jack'
+    })
     assert.equal(jack.age, 9)
-    var jill = results[0].find(function (person) { return person.name === 'Jill' })
+    var jill = results[0].kids.find(function (person) {
+      return person.name === 'Jill'
+    })
     assert.equal(jill.age, 8)
   }
 }
