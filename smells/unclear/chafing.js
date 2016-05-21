@@ -4,7 +4,7 @@
  */
 
 // Subject under test
-function pricingForCode(code) {
+function pricingForCode (code) {
   var firstFactor = 0
   if (code[0] === 'A') firstFactor = 65
   if (code[0] === '7') firstFactor = 55
