@@ -4,9 +4,9 @@
  */
 
 // Subject under test
-function joinPath(fragments) {
+function joinPath (fragments) {
   var separator, pattern
-  if (process.platform == 'win32') {
+  if (process.platform === 'win32') {
     separator = '\\'
     pattern = /\\+/g
   } else {
@@ -23,22 +23,23 @@ module.exports = {
 
     var result = joinPath(fragments)
 
-    if (process.platform == 'win32') {
+    if (process.platform === 'win32') {
       assert.equal(result, 'foo\\bar\\baz')
     } else {
       assert.equal(result, 'foo/bar/baz')
     }
   },
   containsSeparators: function () {
-    if (process.platform == 'win32') {
-      var fragments = ['\\foo\\', 'bar\\biz', 'baz\\']
+    var fragments
+    if (process.platform === 'win32') {
+      fragments = ['\\foo\\', 'bar\\biz', 'baz\\']
     } else {
-      var fragments = ['/foo/', 'bar/biz', 'baz/']
+      fragments = ['/foo/', 'bar/biz', 'baz/']
     }
 
     var result = joinPath(fragments)
 
-    if (process.platform == 'win32') {
+    if (process.platform === 'win32') {
       assert.equal(result, '\\foo\\bar\\biz\\baz\\')
     } else {
       assert.equal(result, '/foo/bar/biz/baz/')
