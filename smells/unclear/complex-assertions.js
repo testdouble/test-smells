@@ -24,9 +24,9 @@ module.exports = {
     ]
     var results = incrementAge(people)
 
-    var jane = results.find(function (person) { return person.name === 'Jane' })
+    var jane = _.find(results, function (person) { return person.name === 'Jane' })
     assert.equal(jane.age, 40)
-    var john = results.find(function (person) { return person.name === 'John' })
+    var john = _.find(results, function (person) { return person.name === 'John' })
     assert.equal(john.age, 100)
   },
   incrementsKidsAgeToo: function () {
@@ -39,11 +39,11 @@ module.exports = {
 
     var results = incrementAge(people)
 
-    var jack = results[0].kids.find(function (person) {
+    var jack = _.find(results[0].kids, function (person) {
       return person.name === 'Jack'
     })
     assert.equal(jack.age, 9)
-    var jill = results[0].kids.find(function (person) {
+    var jill = _.find(results[0].kids, function (person) {
       return person.name === 'Jill'
     })
     assert.equal(jill.age, 8)
