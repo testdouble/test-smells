@@ -6,6 +6,11 @@
 This repository is designed to serve as a sandbox for exploring a handful of test
 smells that are common in real-world test suites.
 
+The examples in this repo go hand-in-hand with an interactive training workshop
+for developers, testers, & teams who want to improve their testing game. If
+you're interested in bringing this training to your team, please [contact us at
+Test Double](mailto:hello+testsmells@testdouble.com)!
+
 ## Getting started
 
 First, clone the repo, change into its directory, and make sure your
