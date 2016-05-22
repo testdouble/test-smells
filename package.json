@@ -25,13 +25,13 @@
     "assert": "^1.3.0",
     "testdouble": "^1.4.2"
   },
+  "dependencies": {
+    "lodash": "^4.12.0",
+    "stringify-object-with-one-liners": "^1.0.0"
+  },
   "standard": {
     "globals": [
       "assert"
     ]
-  },
-  "dependencies": {
-    "lodash": "^4.12.0",
-    "stringify-object-with-one-liners": "^1.0.0"
   }
 }
