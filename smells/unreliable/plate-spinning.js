@@ -14,7 +14,7 @@ function download (path, cb) {
 // Test
 module.exports = {
   beforeEach: function () {
-    post('/interests', {id: 42, interests: ['Ruby on Rails']}, function(){})
+    post('/interests', {id: 42, interests: ['Ruby on Rails']}, function () {})
   },
   getsAndThenInserts: function (done) {
     download('/interests', function (er) {
@@ -56,6 +56,6 @@ function select (id, cb) {
   })
 }
 
-function randomTimeout(func, low, high) {
+function randomTimeout (func, low, high) {
   setTimeout(func, _(low || 10).range(high || 100).sample())
 }
