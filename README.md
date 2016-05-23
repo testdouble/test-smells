@@ -90,6 +90,9 @@ changes. As we like to say, "never trust a test you haven't seen fail."
 
 #### Compare with our solution
 
+**[Update: the solution branch hasn't been created yet. Fork the repo and submit
+your own!]**
+
 This repo contains a git branch named `solutions` which will tidy up the tests to
 our own liking. If you're interested in seeing our approach to deodorizing a
 particular test smell, stash or commit your own changes and `git checkout
