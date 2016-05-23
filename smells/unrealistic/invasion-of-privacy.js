@@ -62,17 +62,17 @@ module.exports = {
     assert.equal(this.subject.__approvals['M'][null], false)
   },
   doNotBreakIfSeatLacksARowNumber: function () {
-    var result = this.subject.__qualifyFareClassForSeat('A')
+    this.subject.__qualifyFareClassForSeat('A')
 
     assert.equal(this.subject.__approvals['M']['A'], false)
   },
   approveIfBehindRowTen: function () {
-    var result = this.subject.__qualifyFareClassForSeat('11B')
+    this.subject.__qualifyFareClassForSeat('11B')
 
     assert.equal(this.subject.__approvals['M']['11B'], true)
   },
   denyIfAheadOfRowTen: function () {
-    var result = this.subject.__qualifyFareClassForSeat('9J')
+    this.subject.__qualifyFareClassForSeat('9J')
 
     assert.equal(this.subject.__approvals['M']['9J'], false)
   }

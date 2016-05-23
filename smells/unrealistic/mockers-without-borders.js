@@ -58,8 +58,8 @@ module.exports = {
       {merchant: 'Apple', desc: 'iPad', amount: 799.99},
       {merchant: 'Apple', desc: 'iPad Cover', amount: 59.99}
     ]
-    var startDate = new Date(2015,0,1)
-    var endDate = new Date(2015,11,31)
+    var startDate = new Date(2015, 0, 1)
+    var endDate = new Date(2015, 11, 31)
     td.when(App.fetch(startDate, endDate)).thenReturn(transactions)
 
     App.payMerchants(startDate, endDate)
