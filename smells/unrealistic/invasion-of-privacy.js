@@ -18,18 +18,16 @@
  */
 
 // Subject under test
-var _ = require('lodash')
 function SeatMap (ticket, originalSeat) {
   this.fareClass = ticket.fareClass
   this.__currentSeat = originalSeat
-  this.__approvals = {}
 }
 
 SeatMap.prototype.moveTo = function (newSeat) {
   if (!this.newSeat) throw new Error('No seat selected')
   if (!/^\d\d?[A-J]$/.test(newSeat)) throw new Error('Invalid seat selected')
-  this.__qualifyFareClassForSeat(newSeat)
-  if (this.__approvals[this.fareClass][newSeat]) {
+
+  if (this.__qualifyFareClassForSeat(newSeat)) {
     this.__currentSeat = newSeat
   } else {
     throw new Error('Seat not available for ticket\'s fare class')
@@ -38,16 +36,14 @@ SeatMap.prototype.moveTo = function (newSeat) {
 
 // Private API! Don't call this!
 SeatMap.prototype.__qualifyFareClassForSeat = function (seat) {
-  var result = false
   if (seat) {
     var rowMatch = seat.match(/^(\d+)/)
     if (rowMatch) {
       var row = parseInt(rowMatch[0], 10)
-      result = row > 10
+      return row > 10
     }
   }
-
-  _.set(this.__approvals, this.fareClass + '.' + seat, result)
+  return false
 }
 
 // Test
@@ -57,23 +53,23 @@ module.exports = {
     this.subject = new SeatMap(this.ticket, '18D')
   },
   ensureSeatNotNull: function () {
-    this.subject.__qualifyFareClassForSeat(null)
+    var result = this.subject.__qualifyFareClassForSeat(null)
 
-    assert.equal(this.subject.__approvals['M'][null], false)
+    assert.equal(result, false)
   },
   doNotBreakIfSeatLacksARowNumber: function () {
-    this.subject.__qualifyFareClassForSeat('A')
+    var result = this.subject.__qualifyFareClassForSeat('A')
 
-    assert.equal(this.subject.__approvals['M']['A'], false)
+    assert.equal(result, false)
   },
   approveIfBehindRowTen: function () {
-    this.subject.__qualifyFareClassForSeat('11B')
+    var result = this.subject.__qualifyFareClassForSeat('11B')
 
-    assert.equal(this.subject.__approvals['M']['11B'], true)
+    assert.equal(result, true)
   },
   denyIfAheadOfRowTen: function () {
-    this.subject.__qualifyFareClassForSeat('9J')
+    var result = this.subject.__qualifyFareClassForSeat('9J')
 
-    assert.equal(this.subject.__approvals['M']['9J'], false)
+    assert.equal(result, false)
   }
 }
