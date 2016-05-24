@@ -3,10 +3,11 @@
  * primitive obsession / lack of good test controls
  */
 
+
 // Subject under test
 function joinPath (fragments) {
   var separator, pattern
-  if (process.platform === 'win32') {
+  if (platform.windows()) {
     separator = '\\'
     pattern = /\\+/g
   } else {
@@ -17,32 +18,44 @@ function joinPath (fragments) {
 }
 
 // Test
+var td = require('testdouble')
 module.exports = {
-  simpleCase: function () {
-    var fragments = ['foo', 'bar', 'baz']
-
-    var result = joinPath(fragments)
-
-    if (process.platform === 'win32') {
-      assert.equal(result, 'foo\\bar\\baz')
-    } else {
-      assert.equal(result, 'foo/bar/baz')
-    }
+  beforeEach: function () {
+    td.replace(platform, 'windows')
   },
-  containsSeparators: function () {
-    var fragments
-    if (process.platform === 'win32') {
-      fragments = ['\\foo\\', 'bar\\biz', 'baz\\']
-    } else {
-      fragments = ['/foo/', 'bar/biz', 'baz/']
-    }
-
+  simpleCaseOnWin32: function () {
+    td.when(platform.windows()).thenReturn(true)
+    var fragments = ['foo', 'bar', 'baz']
     var result = joinPath(fragments)
-
-    if (process.platform === 'win32') {
-      assert.equal(result, '\\foo\\bar\\biz\\baz\\')
-    } else {
-      assert.equal(result, '/foo/bar/biz/baz/')
-    }
+    assert.equal(result, 'foo\\bar\\baz')
+  },
+  containsSeparatorsOnWin32: function () {
+    td.when(platform.windows()).thenReturn(true)
+    var fragments = ['\\foo\\', 'bar\\biz', 'baz\\']
+    var result = joinPath(fragments)
+    assert.equal(result, '\\foo\\bar\\biz\\baz\\')
+  },
+  simpleCaseOnOther: function () {
+    td.when(platform.windows()).thenReturn(false)
+    var fragments = ['foo', 'bar', 'baz']
+    var result = joinPath(fragments)
+    assert.equal(result, 'foo/bar/baz')
+  },
+  containsSeparatorsOnOther: function () {
+    td.when(platform.windows()).thenReturn(false)
+    var fragments = ['/foo/', 'bar/biz', 'baz/']
+    var result = joinPath(fragments)
+    assert.equal(result, '/foo/bar/biz/baz/')
+  },
+  afterEach: function () {
+    td.reset()
   }
 }
+
+// Fake production implementations to simplify example test of subject
+var platform = {
+  windows: function () {
+    return process.platform === 'win32'
+  }
+}
+
