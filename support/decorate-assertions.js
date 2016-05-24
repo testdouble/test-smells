@@ -12,12 +12,6 @@ module.exports = function (assert) {
           '\n\nto contain: ' + stringify(expected, {indent: '  '}) + '\n\n'
         )
       }
-    },
-    codePricing: function (actual, code) {
-      // See: smells/unclear/chafing.js
-      var expected = code.charCodeAt(0) * Math.round((1000 - (code.length * 39)) / 42)
-      assert.equal(actual, expected)
     }
-
   })
 }

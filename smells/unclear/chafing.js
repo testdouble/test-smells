@@ -19,27 +19,26 @@ function pricingForCode (code) {
 }
 
 // Test
-var generateCode = require('../../support/generate-code')
 module.exports = {
   codeOneIsCorrect: function () {
-    var code = generateCode.one()
+    var code = '784'
 
     var result = pricingForCode(code)
 
-    assert.codePricing(result, code)
+    assert.equal(result, 1155)
   },
   codeTwoIsCorrect: function () {
-    var code = generateCode.two()
+    var code = '(8xj)'
 
     var result = pricingForCode(code)
 
-    assert.codePricing(result, code)
+    assert.equal(result, 760)
   },
   codeThreeIsCorrect: function () {
-    var code = generateCode.three()
+    var code = 'AAAABCDE'
 
     var result = pricingForCode(code)
 
-    assert.codePricing(result, code)
+    assert.equal(result, 1040)
   }
 }
