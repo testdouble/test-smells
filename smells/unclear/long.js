@@ -11,11 +11,13 @@ Stack.prototype.peek = function () { return this.items[this.items.length - 1] }
 Stack.prototype.depth = function () { return this.items.length }
 
 // Test
+var subject
 module.exports = {
-  makeSureEverythingWorks: function () {
-    var subject = new Stack()
+  beforeEach: function () {
+    subject = new Stack()
+  },
 
-    // Test Push
+  pushStoresThingsPopCanPull: function () {
     subject.push('A')
     subject.push('B')
     subject.push('C')
@@ -23,8 +25,9 @@ module.exports = {
     assert.equal(subject.pop(), 'C')
     assert.equal(subject.pop(), 'B')
     assert.equal(subject.pop(), 'A')
+  },
 
-    // Test Peek
+  peekSeesTheTop: function () {
     subject.push('D')
     subject.push('E')
 
@@ -33,20 +36,18 @@ module.exports = {
     subject.pop()
 
     assert.equal(subject.peek(), 'D')
+  },
 
-    subject.pop()
-
-    // Test Depth
+  depthWorks: function () {
     subject.push('F')
     subject.push('G')
 
     assert.equal(subject.depth(), 2)
+  },
 
-    // Test Pop
-    subject.pop()
-    subject.pop()
-
+  popPullsUndefinedWhenEmpty: function () {
     assert.equal(subject.depth(), 0)
     assert.equal(subject.pop(), undefined)
   }
+
 }
