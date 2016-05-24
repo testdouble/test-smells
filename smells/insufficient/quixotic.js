@@ -16,6 +16,13 @@ module.exports = {
       assert.equal(data, 'URL: https://google.com returned: "some data!"')
       done(er)
     })
+  },
+
+  noSslCausesError: function (done) {
+    curl('http://google.com', function (er, data) {
+      assert.equal(er.message, 'SSL only!')
+      done()
+    })
   }
 }
 
