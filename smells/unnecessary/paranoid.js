@@ -9,11 +9,7 @@
 
 // [Note: In production, this func will only ever be called by csvFor() below]
 function escapeCsvStringValue (value) {
-  if (!value) {
-    return ''
-  } else if (typeof value !== 'string') {
-    return escapeCsvStringValue(JSON.stringify(value))
-  } else if (value.indexOf(',') !== -1) {
+  if (value.indexOf(',') !== -1) {
     return '"' + value.replace(/"/g, '""') + '"'
   } else {
     return value
@@ -38,21 +34,6 @@ module.exports = {
     var result = escapeCsvStringValue('Hello, "Todd".')
 
     assert.equal(result, '"Hello, ""Todd""."')
-  },
-  ensureNotNull: function () {
-    var result = escapeCsvStringValue(null)
-
-    assert.equal(result, '')
-  },
-  coerceNumberToString: function () {
-    var result = escapeCsvStringValue(42)
-
-    assert.equal(result, '42')
-  },
-  coerceObjectToStringAndEscapeTheString: function () {
-    var result = escapeCsvStringValue({name: 'Jim', age: 64})
-
-    assert.equal(result, '"{""name"":""Jim"",""age"":64}"')
   }
 }
 
