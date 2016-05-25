@@ -18,8 +18,12 @@ Game.prototype.playerCount = function () {
 }
 
 // Test
-var game = new Game()
+var game
 module.exports = {
+  beforeEach: function() {
+    game = new Game()
+    allTimeLogins = 0
+  },
   loginOnePlayer: function () {
     game.addPlayer('Joe')
 
@@ -30,7 +34,7 @@ module.exports = {
     game.addPlayer('Jane')
     game.addPlayer('Stef')
 
-    assert.equal(game.playerCount(), 3)
-    assert.equal(allTimeLogins, 3)
+    assert.equal(game.playerCount(), 2)
+    assert.equal(allTimeLogins, 2)
   }
 }
