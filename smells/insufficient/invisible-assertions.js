@@ -15,6 +15,12 @@
  *
  *      Deodorizer: such tests can be safely deleted. You wouldn't add a "please
  *                  don't blow up" test for every single method, would you?
+ *
+ * Example notes:
+ *   In the example below, you should be able to immediately detect an asymmetry
+ *   between the two test cases. Try to refactor the test that lacks an explicit
+ *   assertion so that if it ever fails, the error message clearly states the
+ *   issue to the reader.
  */
 
 // Subject under test
