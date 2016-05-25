@@ -13,10 +13,11 @@ function loadUser (id, cb) {
 
 // Test
 module.exports = {
-  getsUserAndDecoratesPath: function () {
+  getsUserAndDecoratesPath: function (done) {
     loadUser(42, function (er, user) {
       assert.equal(user.resolvedVia, '/users/42')
       assert.equal(user.name, 'Jo')
+      done()
     })
   }
 }
@@ -25,5 +26,5 @@ module.exports = {
 function get (path, cb) {
   setTimeout(function () {
     cb(null, {name: 'Jo'})
-  }, 10)
+  }, 100)
 }
