@@ -6,6 +6,7 @@
   "main": "support/.not-a-requireable-module.js",
   "scripts": {
     "test": "teenytest --helper support/helper.js \"smells/**/*.js\" ",
+    "test:one": "teenytest --helper support/helper.js",
     "style": "standard",
     "ci": "npm run test && npm run style"
   },
