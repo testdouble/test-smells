@@ -9,9 +9,9 @@
 // Subject under test
 var _ = require('lodash')
 function annualProfit (year) {
-  return _.sumBy(_.range(1, 13), function (month) {
+  return Math.round(_.sumBy(_.range(1, 13), function (month) {
     return monthlyProfit(year, month)
-  })
+  }))
 }
 
 function monthlyProfit (year, month) {
@@ -28,7 +28,7 @@ function dailyProfit (year, month, day) {
 }
 
 function transactionProfit (transaction) {
-  return Math.round(transaction.price - transaction.cost)
+  return transaction.price - transaction.cost
 }
 
 // Test
@@ -44,7 +44,7 @@ module.exports = {
 
     var result = annualProfit(2016)
 
-    assert.equal(result, -8)
+    assert.equal(result, -7)
   },
   computesMonthlyProfit: function () {
     repo.saveTransactions([
@@ -57,7 +57,7 @@ module.exports = {
 
     var result = monthlyProfit(2016, 5)
 
-    assert.equal(result, 124)
+    assert.equal(result, 123.08999999999997)
   },
   computesDailyProfit: function () {
     repo.saveTransactions([
@@ -70,14 +70,14 @@ module.exports = {
 
     var result = dailyProfit(2016, 5, 12)
 
-    assert.equal(result, 91)
+    assert.equal(result, 91.61999999999998)
   },
   computesTransactionProfit: function () {
     var transaction = {price: 33.22, cost: 20.11}
 
     var result = transactionProfit(transaction)
 
-    assert.equal(result, 13)
+    assert.equal(result, 13.11)
   },
   afterEach: function () {
     repo.reset()

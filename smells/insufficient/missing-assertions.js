@@ -45,23 +45,30 @@
 // Subject under test
 function fetch (id) {
   var item = find(id)
-  item.lastAccessedAt = new Date().getTime()
+  item.lastAccessedAt = now()
   return item
 }
 
 // Test
 module.exports = {
   getsTheItem: function () {
+    var rightNow = 'lol i am a time'
+    now = function () { return rightNow; }
+
     var result = fetch(42)
 
     assert.equal(result.name, 'Fred')
+    assert.equal(result.lastAccessedAt, now())
   }
 }
 
 // Fake production implementations to simplify example test of subject
+function now () {
+  return new Date().getTime()
+}
+
 function find (id) {
   if (id === 42) {
     return Object.create({ name: 'Fred' })
   }
 }
-

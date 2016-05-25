@@ -12,23 +12,13 @@ function weighClothes (clothes) {
 // Test
 var td = require('testdouble')
 module.exports = {
-  beforeEach: function () {
-    td.replace(factors, 'size')
-    td.when(factors.size('S')).thenReturn(9)
-  },
   addsWeights: function () {
-    var smallWetSock = new Clothing('S', 'sock', 'wet')
-    var largeDryJacket = new Clothing('L', 'jacket', 'dry')
-    td.when(td.replace(largeDryJacket, 'weight')()).thenReturn(8)
-    var xlSoakedPants = td.object(['weight'])
-    td.when(xlSoakedPants.weight()).thenReturn(15)
+    var smallWetSock = new Clothing('S', 'sock', 'wet') // .16
+    var largeDryJacket = new Clothing('L', 'jacket', 'dry') // 3.75
+    var xlSoakedPants = new Clothing('XL', 'pants', 'soaked') // 7.5
 
     var result = weighClothes([smallWetSock, largeDryJacket, xlSoakedPants])
-
-    assert.equal(result, 26)
-  },
-  afterEach: function () {
-    td.reset()
+    assert.equal(result, 11) // rounded
   }
 }
 
@@ -49,7 +39,7 @@ var factors = {
   size: function (size) {
     switch (size) {
       case 'S':
-        return 0.75
+        return 0.5
       case 'M':
         return 1
       case 'L':
@@ -89,4 +79,3 @@ var factors = {
     }
   }
 }
-

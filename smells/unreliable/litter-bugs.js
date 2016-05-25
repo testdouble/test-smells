@@ -18,19 +18,23 @@ Game.prototype.playerCount = function () {
 }
 
 // Test
-var game = new Game()
+var game;
 module.exports = {
-  loginOnePlayer: function () {
-    game.addPlayer('Joe')
-
-    assert.equal(game.playerCount(), 1)
-    assert.equal(allTimeLogins, 1)
+  beforeEach: function () {
+    game = new Game()
+    allTimeLogins = 0 // Who are you?! Clean it up first
   },
   loginTwoPlayers: function () {
     game.addPlayer('Jane')
     game.addPlayer('Stef')
 
-    assert.equal(game.playerCount(), 3)
-    assert.equal(allTimeLogins, 3)
+    assert.equal(game.playerCount(), 2)
+    assert.equal(allTimeLogins, 2)
+  },
+  loginOnePlayer: function () {
+    game.addPlayer('Joe')
+
+    assert.equal(game.playerCount(), 1)
+    assert.equal(allTimeLogins, 1)
   }
 }

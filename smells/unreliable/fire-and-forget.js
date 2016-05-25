@@ -1,4 +1,6 @@
 /* Smell: Fire and Forget
+
+   Never trust a test you haven't seen fail.
  */
 
 // Subject under test
@@ -13,10 +15,11 @@ function loadUser (id, cb) {
 
 // Test
 module.exports = {
-  getsUserAndDecoratesPath: function () {
+  getsUserAndDecoratesPath: function (done) {
     loadUser(42, function (er, user) {
       assert.equal(user.resolvedVia, '/users/42')
       assert.equal(user.name, 'Jo')
+      done(er)
     })
   }
 }
