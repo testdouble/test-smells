@@ -11,20 +11,21 @@
  */
 
 // Subject under test
+var currentDate = require('../../support/current-date.js')
 function TimeCard (hourlyWage) {
   this.hourlyWage = hourlyWage
 }
 
 TimeCard.prototype.punchIn = function (at) {
-  this.startTime = at || new Date()
+  this.startTime = at || currentDate.get()
 }
 
 TimeCard.prototype.punchOut = function (at) {
-  this.endTime = at || new Date()
+  this.endTime = at || currentDate.get()
 }
 
 TimeCard.prototype.wageOwed = function () {
-  var ms = (this.endTime || new Date()).getTime() - this.startTime.getTime()
+  var ms = (this.endTime || currentDate.get()).getTime() - this.startTime.getTime()
   var hours = ms / (60 * 60 * 1000)
   var bonus = this.__workedOnWeekend() ? 1.5 : 1
   return (this.hourlyWage * hours * bonus).toFixed(2)
@@ -34,7 +35,7 @@ TimeCard.prototype.wageOwed = function () {
 module.exports = {
   beforeEach: function () {
     this.subject = new TimeCard(15)
-    this.now = new Date()
+    this.now = currentDate.get()
   },
   punchInDefaultsToNow: function () {
     this.subject.punchIn()

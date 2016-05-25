@@ -43,17 +43,18 @@
  */
 
 // Subject under test
+var currentDate = require('../../support/current-date')
 function fetch (id) {
   var item = find(id)
-  item.lastAccessedAt = new Date().getTime()
+  item.lastAccessedAt = currentDate.get()
   return item
 }
 
 // Test
 module.exports = {
   beforeEach: function () {
-    this.realGetTime = Date.prototype.getTime
-    Date.prototype.getTime = function () {
+    this.realGetDate = currentDate.get
+    currentDate.get = function () {
       return "sometimeinmillis"
     }
   },
@@ -71,7 +72,7 @@ module.exports = {
   },
 
   afterEach: function() {
-    Date.prototype.getTime = this.realGetTime
+    currentDate.get = this.realGetDate
   }
 }
 
