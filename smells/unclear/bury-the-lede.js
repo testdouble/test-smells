@@ -1,10 +1,10 @@
-/* Smell: Bury the Lede
+/* Запах: Bury the Lede
  *
- * Odor: A test's setup is so onerous that the reader forgets the purpose of the
+ * Симптом: A test's setup is so onerous that the reader forgets the purpose of the
  *       subject by the time they reach the relevant invocation and assertion of
  *       the subject.
  *
- * Known causes:
+ * Причины:
  *   1. This happens most frequently when a function that performs a bit of logic
  *      depends on complex model types, each required to be persisted in a data
  *      store and/or to be heavily validated.
@@ -41,7 +41,7 @@
  *                   of (carefully groomed!) fixtures that can spare each
  *                   individual test of one-off setup distraction
  *
- * Example notes:
+ * Замечания к примеру:
  *   This is one of the more complex examples in the project. The subject's
  *   responsibility is two-fold: query for an address from a credit card ID via
  *   its shared relationship with the user model, and then make sure its ZIP code
@@ -58,7 +58,7 @@
  *
  */
 
-// Subject under test
+// Тестируемый модуль
 function verifyCardholderZip (cardId, zip) {
   var card = repo.find(cardId)
   var user = repo.find(card.userId)
@@ -67,7 +67,7 @@ function verifyCardholderZip (cardId, zip) {
   return address.zip === zip
 }
 
-// Test
+// Тесты
 module.exports = {
   trueIfZipMatches: function () {
     var address = {street: '123 Sesame', city: 'Cbus', state: 'OH', zip: '42'}
@@ -96,7 +96,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 var repo = {
   __items: {},
   nextId: 1,

@@ -1,4 +1,4 @@
-/* Smell: X-Ray Specs
+/* Запах: X-Ray Specs
  *
  * In this example, you can see the test is routinely exploiting its ability
  * to access private variables on the subject to do its assertions (when the
@@ -22,7 +22,7 @@
  * implementation can be freely changed in the future!]
  */
 
-// Subject under test
+// Тестируемый модуль
 var _ = require('lodash')
 function SeatMap (ticket, originalSeat) {
   this.fareClass = ticket.fareClass
@@ -40,7 +40,7 @@ SeatMap.prototype.moveTo = function (newSeat) {
   }
 }
 
-// Test
+// Тесты
 module.exports = {
   beforeEach: function () {
     this.ticket = {fareClass: 'M'}
@@ -68,7 +68,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 SeatMap.prototype.__qualifyFareClassForSeat = function (seat) {
   var allowed = parseInt(seat.match(/^(\d+)/)[0], 10) > 10
   _.set(this.__approvals, this.fareClass + '.' + seat, allowed)

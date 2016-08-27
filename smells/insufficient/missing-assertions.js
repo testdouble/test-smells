@@ -41,7 +41,7 @@ function fetch (id) {
   return item
 }
 
-// Test
+// Тесты
 module.exports = {
   getsTheItem: function () {
     var result = fetch(42)

@@ -1,4 +1,4 @@
-/* Smell: Mockers without borders
+/* Запах: Mockers without borders
  *
  * Reading this example, some might jump to a preferred rule-of-thumb for when
  * to replace a real dependency with a fake one. Because consistency is
@@ -35,7 +35,7 @@
  *
  */
 
-// Subject under test
+// Тестируемый модуль
 var App = {}
 
 App.payMerchants = function (startDate, endDate) {
@@ -44,7 +44,7 @@ App.payMerchants = function (startDate, endDate) {
   App.submit(purchaseOrders)
 }
 
-// Test
+// Тесты
 var td = require('testdouble')
 module.exports = {
   beforeEach: function () {
@@ -74,7 +74,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 var _ = require('lodash')
 
 App.fetch = function (startDate, endDate) {

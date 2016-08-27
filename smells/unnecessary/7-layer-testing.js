@@ -1,4 +1,4 @@
-/* Smell: 7-layer testing
+/* Запах: 7-layer testing
  *
  *
  * Challenges:
@@ -6,7 +6,7 @@
  *   - only search for valid days in month (e.g. 28 in feb or 29 in leap years)
  */
 
-// Subject under test
+// Тестируемый модуль
 var _ = require('lodash')
 function annualProfit (year) {
   return _.sumBy(_.range(1, 13), function (month) {
@@ -31,7 +31,7 @@ function transactionProfit (transaction) {
   return Math.round(transaction.price - transaction.cost)
 }
 
-// Test
+// Тесты
 module.exports = {
   computesAnnualProfit: function () {
     repo.saveTransactions([
@@ -84,7 +84,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 var repo = {
   __transactions: [],
   reset: function () {

@@ -1,9 +1,9 @@
-/* Smell: Indecisive Tests
+/* Запах: Indecisive Tests
  *
  * primitive obsession / lack of good test controls
  */
 
-// Subject under test
+// Тестируемый модуль
 function joinPath (fragments) {
   var separator, pattern
   if (process.platform === 'win32') {
@@ -16,7 +16,7 @@ function joinPath (fragments) {
   return fragments.join(separator).replace(pattern, separator)
 }
 
-// Test
+// Тесты
 module.exports = {
   simpleCase: function () {
     var fragments = ['foo', 'bar', 'baz']

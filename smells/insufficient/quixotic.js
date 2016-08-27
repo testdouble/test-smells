@@ -1,10 +1,10 @@
-/* Smell: Quixotic tests
+/* Запах: Quixotic tests
  *
- * Odor: A test only charts an idealistic path through the subject,
+ * Симптом: A test only charts an idealistic path through the subject,
  *       cherry-picking inputs to provide minimum resistance, and not considering
  *       potential edge or error cases
  *
- * Known Causes:
+ * Причины:
  *   1. Someone was testing in a hurry. Sometimes, when testing (or TDD'ing)
  *      lots of code that's low-risk or unextraordinary, it's tempting to write
  *      just enough of a test to declare the subject to have been tested,
@@ -29,7 +29,7 @@
  *                  inputs and expected outputs are thrown at a system to find
  *                  gaps in the implementation.
  *
- * Example notes:
+ * Замечания к примеру:
  *   In the `curl` function below, there's some explicit error handling that's
  *   never covered by the test. If you read the implementation of `get`, however,
  *   you should be able to add a test that will assert that the subject properly
@@ -42,7 +42,7 @@
  *   `done(null)` to keep the test green.]
  */
 
-// Subject under test
+// Тестируемый модуль
 function curl (url, cb) {
   get(url, function (er, data) {
     if (er) return cb(er)
@@ -50,7 +50,7 @@ function curl (url, cb) {
   })
 }
 
-// Test
+// Тесты
 module.exports = {
   happyPath: function (done) {
     curl('https://google.com', function (er, data) {
@@ -60,7 +60,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 function get (url, cb) {
   if (url.indexOf('https') !== 0) {
     cb(new Error('SSL only!'))

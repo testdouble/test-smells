@@ -1,7 +1,7 @@
-/* Smell: Litter Bugs
+/* Запах: Litter Bugs
  */
 
-// Subject under test
+// Тестируемый модуль
 var allTimeLogins = 0
 
 function Game () {
@@ -17,7 +17,7 @@ Game.prototype.playerCount = function () {
   return this.players.length
 }
 
-// Test
+// Тесты
 var game = new Game()
 module.exports = {
   loginOnePlayer: function () {
