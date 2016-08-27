@@ -1,55 +1,47 @@
-/* Smell: Missing Assertions
+/* Запах: Пропущенные проверки
  *
- * Odor: The subject does things that are not explicitly asserted by the test
+ * Симптом: Тесты не проверяют часть функционала тестируемого модуля
  *
- * Known Causes:
- *   1. The subject is performing multiple, unrelated jobs and the unasserted
- *      job is either less important, was tacked on later, or doesn't comport
- *      with the subject's name(s). Put simply, the subject is probably violating
- *      SRP (https://en.wikipedia.org/wiki/Single_responsibility_principle)
+ * Причины:
+ *   1. Тестируемый модуль делает кучу несвязанных вещей. Функционал без тестов
+ *      либо неважен, либо про него забыли, либо он не согласуется с
+ *      названием модуля. Проще говоря, тестируемый объект нарушает SRP
+ *      (https://en.wikipedia.org/wiki/Single_responsibility_principle)
  *
- *      Deodorizer: refactor the responsibility away from the subject. If the
- *                  un-asserted code is logging or security related, perhaps it
- *                  can be addressed in a cross-cutting fashion (e.g. middleware,
- *                  some sort of AOP). If an extra responsibility was simply
- *                  wedged into the subject, then perhaps both responsibilities
- *                  should be pushed down into first-class units with the
- *                  original unit serving only to coordinate the two (or more)
- *                  jobs.
+ *      Лечение: вытащите лишнюю ответственность в отдельные модули.
+ *               Тестируемый модуль оставьте для их координации.
+ *               Если код без тестов связан с логированием или безопаностью,
+ *               возомжно, проблему можно решить мидлварью или AOP.
  *
- *    2. Whatever the subject does is difficult to assert completely, so a
- *       shortcut was taken to skip the assertion of some pieces, leaving them
- *       effectively uncovered.
+ *   2. То, что делает модуль, тяжело проверить целиком. Не стали добавлять
+ *      проверки, оставили часть функционала без тестов.
  *
- *       Deodorizer: it's possible that there's a way to clearly assert the
- *                   behavior that isn't too cumbersome; if so, add it. What's
- *                   just as likely is that the untested behavior is also hard
- *                   to write an assertion for, in which case you must evaluate
- *                   your options: maybe the behavior is unimportant enough to
- *                   live on without a test; maybe the subject could be reworked
- *                   to make its result or side effect easier to measure; or
- *                   maybe it's just an awkward place to do the work and the
- *                   untested code should be moved elsewhere.
+ *      Лечение: добавьте проверки, если есть возможность и это не трудоемко.
+ *               Скорее всего, код остался без тестов, потому что его трудно
+ *               проверить. В этом случае решайте: возможно, функционал
+ *               не важен, можно жить и без тестов; возможно, тестируемый
+ *               модуль можно переписать так, чтобы возвращаемое значение
+ *               или сайд-эффекты было легко проверить; возможно, это
+ *               неудачное место и код без тестов стоит переместить.
  *
- * Example notes:
- *   It's clear that the line beginning `item.lastAccessedAt` wasn't asserted,
- *   because if you delete it, the test will still pass. Consider how you'd add
- *   a reliable assertion, including how you might refactor the subject to deal
- *   with time in a more reliable way.
+ * Замечания к примеру:
+ *   Очевидо, что строка с `item.lastAccessedAt` не была проверена.
+ *   Если удалить ее, тесты пройдут. Подумайте, как добавить адекватную
+ *   проверку, как исправить тестируемый модуль, чтобы он работал предсказуемо
+ *   работал со временем.
  *
- *   Taken even further, think about how you might design away the need for a
- *   method called `fetch` to also mutate the value being fetched with a
- *   `lastAccessedAt` timestamp.
+ *   Еще круче: подумайте, как бы вы исправили `fetch` так, чтобы ему
+ *   не приходилось изменять скачиваемое значение через `lastAccessedAt`.
  */
 
-// Subject under test
+// Тестируемый модуль
 function fetch (id) {
   var item = find(id)
   item.lastAccessedAt = new Date().getTime()
   return item
 }
 
-// Test
+// Тесты
 module.exports = {
   getsTheItem: function () {
     var result = fetch(42)
@@ -58,7 +50,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 function find (id) {
   if (id === 42) {
     return Object.create({ name: 'Fred' })

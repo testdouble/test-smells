@@ -1,8 +1,8 @@
-/* Smell: Complex Assertions
+/* Запах: Complex Assertions
  *
- * Odor: A test contains multiple lines of assertion code
+ * Симптом: A test contains multiple lines of assertion code
  *
- * Known causes:
+ * Причины:
  *   1. The subject may return a complex value, and the test author only wants to
  *      signal that certain subsets of that return value are meaningful (e.g.
  *      the subject adds certain properties to an already-large object outside
@@ -36,7 +36,7 @@
  *                  is to rework the subject to adhere to Command-query
  *                  separation.
  *
- * Example notes:
+ * Замечания к примеру:
  *   This example subject is a little intimidating if you're not already familiar
  *   with lodash, but the gist is that for a complex object type, it attempts to
  *   increment the age of all the people in a deeply nested object representing a
@@ -49,7 +49,7 @@
  *   subject is supposed to be doing.
  */
 
-// Subject under test
+// Тестируемый модуль
 var _ = require('lodash')
 function incrementAge (people) {
   return _(_.cloneDeep(people)).map(function (person) {
@@ -63,7 +63,7 @@ function incrementAge (people) {
   }).shuffle().value()
 }
 
-// Test
+// Тесты
 module.exports = {
   incrementsSinglePersonAge: function () {
     var people = [

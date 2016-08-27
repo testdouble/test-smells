@@ -1,7 +1,7 @@
-/* Smell: Fire and Forget
+/* Запах: Fire and Forget
  */
 
-// Subject under test
+// Тестируемый модуль
 function loadUser (id, cb) {
   var path = '/users/' + id
 
@@ -11,7 +11,7 @@ function loadUser (id, cb) {
   })
 }
 
-// Test
+// Тесты
 module.exports = {
   getsUserAndDecoratesPath: function () {
     loadUser(42, function (er, user) {
@@ -21,7 +21,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 function get (path, cb) {
   setTimeout(function () {
     cb(null, {name: 'Jo'})

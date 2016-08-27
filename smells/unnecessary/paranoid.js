@@ -1,11 +1,11 @@
-/* Smell: Paranoid tests
+/* Запах: Paranoid tests
  *
  * (In the example below, half the function is unnecessary! The whole recursion
  * case would be unreachable in production! And yet it's probably the most
  * complex thing in here!)
  */
 
-// Subject under test
+// Тестируемый модуль
 
 // [Note: In production, this func will only ever be called by csvFor() below]
 function escapeCsvStringValue (value) {
@@ -20,7 +20,7 @@ function escapeCsvStringValue (value) {
   }
 }
 
-// Test
+// Тесты
 module.exports = {
   doesNothingWithoutCommas: function () {
     var text = 'hi my name is "Todd"'

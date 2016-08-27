@@ -1,7 +1,7 @@
-/* Smell: Plate-spinning
+/* Запах: Plate-spinning
  */
 
-// Subject under test
+// Тестируемый модуль
 function download (path, cb) {
   get(path, function (er, value) {
     if (er) return cb(er)
@@ -11,7 +11,7 @@ function download (path, cb) {
   })
 }
 
-// Test
+// Тесты
 module.exports = {
   beforeEach: function () {
     post('/interests', {id: 42, interests: ['Ruby on Rails']}, function () {})
@@ -26,7 +26,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 var _ = require('lodash')
 var resources = {}
 function post (path, value, cb) {

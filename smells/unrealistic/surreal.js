@@ -1,7 +1,7 @@
-/* Smell: Surreal tests
+/* Запах: Surreal tests
  */
 
-// Subject under test
+// Тестируемый модуль
 var _ = require('lodash')
 function weighClothes (clothes) {
   return Math.round(_.sumBy(clothes, function (item) {
@@ -9,7 +9,7 @@ function weighClothes (clothes) {
   }))
 }
 
-// Test
+// Тесты
 var td = require('testdouble')
 module.exports = {
   beforeEach: function () {
@@ -32,7 +32,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 function Clothing (size, type, wetness) {
   this.size = size
   this.type = type

@@ -1,7 +1,7 @@
-/* Smell: Premature Assertions
+/* Запах: Premature Assertions
  */
 
-// Subject under test
+// Тестируемый модуль
 function Plane (airTrafficControl) {
   this.airTrafficControl = airTrafficControl
 }
@@ -15,7 +15,7 @@ Plane.prototype.takeOff = function () {
   }
 }
 
-// Test
+// Тесты
 module.exports = {
   beforeEach: function () {
     this.airTrafficControl = new AirTrafficControl()
@@ -40,7 +40,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 Plane.prototype.start = function () { this.started = true }
 Plane.prototype.isStarted = function () { return this.started }
 Plane.prototype.taxi = function () { this.taxied = true }

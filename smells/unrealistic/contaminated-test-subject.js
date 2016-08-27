@@ -1,7 +1,7 @@
-/* Smell: Contaminated Test Subject
+/* Запах: Contaminated Test Subject
  */
 
-// Subject under test
+// Тестируемый модуль
 function SavingsBond (startDate, matureValue, termInYears) {
   this.startDate = startDate
   this.matureValue = matureValue
@@ -20,7 +20,7 @@ SavingsBond.prototype.currentValue = function () {
   }
 }
 
-// Test
+// Тесты
 var td = require('testdouble')
 module.exports = {
   beforeEach: function () {
@@ -50,7 +50,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 SavingsBond.prototype.isMature = function () {
   return this.matureDate.getTime() - Date.now() > 0
 }

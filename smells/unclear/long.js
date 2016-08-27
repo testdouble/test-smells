@@ -1,7 +1,7 @@
-/* Smell: Long tests
+/* Запах: Long tests
  */
 
-// Subject under test
+// Тестируемый модуль
 function Stack () {
   this.items = []
 }
@@ -10,12 +10,12 @@ Stack.prototype.pop = function () { return this.items.pop() }
 Stack.prototype.peek = function () { return this.items[this.items.length - 1] }
 Stack.prototype.depth = function () { return this.items.length }
 
-// Test
+// Тесты
 module.exports = {
   makeSureEverythingWorks: function () {
     var subject = new Stack()
 
-    // Test Push
+    // Тесты Push
     subject.push('A')
     subject.push('B')
     subject.push('C')
@@ -24,7 +24,7 @@ module.exports = {
     assert.equal(subject.pop(), 'B')
     assert.equal(subject.pop(), 'A')
 
-    // Test Peek
+    // Тесты Peek
     subject.push('D')
     subject.push('E')
 
@@ -36,13 +36,13 @@ module.exports = {
 
     subject.pop()
 
-    // Test Depth
+    // Тесты Depth
     subject.push('F')
     subject.push('G')
 
     assert.equal(subject.depth(), 2)
 
-    // Test Pop
+    // Тесты Pop
     subject.pop()
     subject.pop()
 
