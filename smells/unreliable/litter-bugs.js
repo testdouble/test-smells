@@ -1,4 +1,4 @@
-/* Запах: Litter Bugs
+/* Litter Bugs
  */
 
 // Тестируемый модуль

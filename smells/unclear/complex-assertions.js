@@ -1,6 +1,6 @@
-/* Запах: Complex Assertions
+/* Complex Assertions
  *
- * Симптом: A test contains multiple lines of assertion code
+ * Запах: A test contains multiple lines of assertion code
  *
  * Причины:
  *   1. The subject may return a complex value, and the test author only wants to

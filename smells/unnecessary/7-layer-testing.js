@@ -1,4 +1,4 @@
-/* Запах: 7-layer testing
+/* 7-layer testing
  *
  *
  * Challenges:

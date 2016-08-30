@@ -1,4 +1,4 @@
-/* Запах: Plate-spinning
+/* Plate-spinning
  */
 
 // Тестируемый модуль

@@ -1,4 +1,4 @@
-/* Запах: Contaminated Test Subject
+/* Contaminated Test Subject
  */
 
 // Тестируемый модуль

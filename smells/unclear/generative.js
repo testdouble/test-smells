@@ -1,6 +1,6 @@
-/* Запах: Generative Tests
+/* Generative Tests
  *
- * Симптом: A test loops over a data structure of discrete inputs and expected
+ * Запах: A test loops over a data structure of discrete inputs and expected
  *       outputs to generate test cases.
  *
  * Причины:

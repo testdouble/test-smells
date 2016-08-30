@@ -1,4 +1,4 @@
-/* Запах: Tangential tests
+/* Tangential tests
  */
 
 // Тестируемый модуль

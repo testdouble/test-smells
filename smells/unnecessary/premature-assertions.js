@@ -1,4 +1,4 @@
-/* Запах: Premature Assertions
+/* Premature Assertions
  */
 
 // Тестируемый модуль

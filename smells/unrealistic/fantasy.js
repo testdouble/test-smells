@@ -1,4 +1,4 @@
-/* Запах: Fantasy Tests
+/* Fantasy Tests
  *
  * Passing tests of code that wouldn't actually work in production
  */

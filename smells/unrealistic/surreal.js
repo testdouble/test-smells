@@ -1,4 +1,4 @@
-/* Запах: Surreal tests
+/* Surreal tests
  */
 
 // Тестируемый модуль

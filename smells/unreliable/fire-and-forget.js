@@ -1,4 +1,4 @@
-/* Запах: Fire and Forget
+/* Fire and Forget
  */
 
 // Тестируемый модуль

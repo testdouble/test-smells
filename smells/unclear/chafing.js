@@ -1,6 +1,6 @@
-/* Запах: Chafing Tests
+/* Chafing Tests
  *
- * Симптом: A test in which the author attempts to eliminate as much textual
+ * Запах: A test in which the author attempts to eliminate as much textual
  *       duplication as possible, even if the indirection it introduces confuses
  *       future readers of the intention and behavior of the test
  *

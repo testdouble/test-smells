@@ -1,4 +1,4 @@
-/* Запах: Self-important Test Data
+/* Self-important Test Data
  *
  * The fact the algorithm is wrong is probably lost on us, becuase creating and
  * reading the test data (whether literally in the test or in messages produced

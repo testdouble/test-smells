@@ -1,4 +1,4 @@
-/* Запах: Test By Number
+/* Test By Number
  *
  *
  * If you look at the example below, it may seem like a fine test example, but

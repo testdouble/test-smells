@@ -1,4 +1,4 @@
-/* Запах: X-Ray Specs
+/* X-Ray Specs
  *
  * In this example, you can see the test is routinely exploiting its ability
  * to access private variables on the subject to do its assertions (when the

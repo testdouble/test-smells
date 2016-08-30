@@ -1,4 +1,4 @@
-/* Запах: Time bombs
+/* Time bombs
  *
  * Because of poor date management, the example below will fail erratically in
  * two ways:

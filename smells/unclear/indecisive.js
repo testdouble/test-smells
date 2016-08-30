@@ -1,4 +1,4 @@
-/* Запах: Indecisive Tests
+/* Indecisive Tests
  *
  * primitive obsession / lack of good test controls
  */
