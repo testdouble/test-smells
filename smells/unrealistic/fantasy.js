@@ -1,9 +1,9 @@
-/* Smell: Fantasy Tests
+/* Fantasy Tests
  *
  * Passing tests of code that wouldn't actually work in production
  */
 
-// Subject under test
+// Тестируемый модуль
 var authorizor = {
   roles: function (user, password) {
     if (authenticator.login({user: user, password: password})) {
@@ -14,7 +14,7 @@ var authorizor = {
   }
 }
 
-// Test
+// Тесты
 var td = require('testdouble')
 module.exports = {
   beforeEach: function () {
@@ -39,7 +39,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 var authenticator = {
   login: function (credentials) {
     if (!credentials.password || !credentials['2fa']) {

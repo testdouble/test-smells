@@ -1,4 +1,4 @@
-/* Smell: Self-important Test Data
+/* Self-important Test Data
  *
  * The fact the algorithm is wrong is probably lost on us, becuase creating and
  * reading the test data (whether literally in the test or in messages produced
@@ -6,7 +6,7 @@
  * the proper math.
  */
 
-// Subject under test
+// Тестируемый модуль
 function isGpsWithinLocation (gps, location) {
   var boundaries = boundariesForZip(location.zip)
   return boundaries.northWest.lat >= gps.lat &&
@@ -15,7 +15,7 @@ function isGpsWithinLocation (gps, location) {
          boundaries.southWest.lng <= gps.lng
 }
 
-// Test
+// Тесты
 module.exports = {
   gpsInsideLocation: function () {
     var gps = {
@@ -73,7 +73,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 function boundariesForZip (zip) {
   return {
     northWest: {lat: 45, lng: -80},

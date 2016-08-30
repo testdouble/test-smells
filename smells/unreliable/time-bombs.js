@@ -1,4 +1,4 @@
-/* Smell: Time bombs
+/* Time bombs
  *
  * Because of poor date management, the example below will fail erratically in
  * two ways:
@@ -10,7 +10,7 @@
  *   easy and just run your build on Monday through Thursday!
  */
 
-// Subject under test
+// Тестируемый модуль
 function TimeCard (hourlyWage) {
   this.hourlyWage = hourlyWage
 }
@@ -30,7 +30,7 @@ TimeCard.prototype.wageOwed = function () {
   return (this.hourlyWage * hours * bonus).toFixed(2)
 }
 
-// Test
+// Тесты
 module.exports = {
   beforeEach: function () {
     this.subject = new TimeCard(15)
@@ -51,7 +51,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 TimeCard.prototype.__workedOnWeekend = function () {
   return this.startTime.getDay() === 0 ||
          this.startTime.getDay() === 6 ||

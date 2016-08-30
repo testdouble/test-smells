@@ -1,9 +1,9 @@
-/* Smell: Generative Tests
+/* Generative Tests
  *
- * Odor: A test loops over a data structure of discrete inputs and expected
+ * Запах: A test loops over a data structure of discrete inputs and expected
  *       outputs to generate test cases.
  *
- * Known causes:
+ * Причины:
  *   1. Most often, generative tests are written against functions that tangle
  *      bits of the same data in with the logic (often in branch statements like
  *      if/switch). Because the subject contains a lot of branching that's based
@@ -38,7 +38,7 @@
  *                  forcing an improvement to the implementation. For related
  *                  commentary, see: smells/unnecessary/paranoid.js
  *
- * Example notes:
+ * Замечания к примеру:
  *   If it's not clear how to move forward in this example, try extracting the
  *   object of input/output pairs and referencing it from the subject. If
  *   `toArabic` had access to a struct by which it could look up the arabic value
@@ -46,7 +46,7 @@
  *   simplifed?
  */
 
-// Subject under test
+// Тестируемый модуль
 var _ = require('lodash')
 function toArabic (roman) {
   return _(roman).map(function (x, i) {
@@ -61,7 +61,7 @@ function toArabic (roman) {
   }).reduce(function (memo, x) { return memo + x })
 }
 
-// Test
+// Тесты
 module.exports = _.transform({
   'I': 1,
   'II': 2,

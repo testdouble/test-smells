@@ -1,4 +1,4 @@
-/* Smell: Test By Number
+/* Test By Number
  *
  *
  * If you look at the example below, it may seem like a fine test example, but
@@ -29,7 +29,7 @@
  *   generated, then so could the controller itself!
  */
 
-// Subject under test
+// Тестируемый модуль
 var _ = require('lodash')
 var AddressController = {
   create: function (currentUser, addressParams) {
@@ -51,7 +51,7 @@ var AddressController = {
   }
 }
 
-// Test
+// Тесты
 module.exports = {
   testCreate: function () {
     var user = repo.save({name: 'Jane', addresses: []})
@@ -99,7 +99,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 var repo = {
   __items: {},
   reset: function () { repo.__items = {} },

@@ -1,48 +1,41 @@
-/* Smell: Quixotic tests
+/* Донкихотские тесты
  *
- * Odor: A test only charts an idealistic path through the subject,
- *       cherry-picking inputs to provide minimum resistance, and not considering
- *       potential edge or error cases
+ * Запах: тесты проверяют идеальные ситуации по пути наименьшего
+ *        сопротивления, игнорируя ошибочные и краевые случаи
  *
- * Known Causes:
- *   1. Someone was testing in a hurry. Sometimes, when testing (or TDD'ing)
- *      lots of code that's low-risk or unextraordinary, it's tempting to write
- *      just enough of a test to declare the subject to have been tested,
- *      sprinkling in just enough error handling and edge case guards as needed
- *      to cover oneself.
+ * Причины:
+ *   1. Кто-то тестировал в спешке. При тестировании (или при разработке
+ *      через тестирование) тривиального или неважного кода, написали минимум
+ *      тестов («какие-то тесты есть») и кое-как обработали ошибки и краевые
+ *      случаи в коде.
  *
- *      Deodorizer: the most straightforward approach is to move more
- *                  deliberately and only call a test "done" when it demands all
- *                  of the behavior found in the subject. This is easiest when
- *                  practicing TDD/test-first, because all it takes is the
- *                  discipline to not add logic to a subject until you first
- *                  write a test to demand it.
+ *      Лечение: работать сознательно: считать тесты готовыми, когда они
+ *               покрывают все поведение тестируемого модуля. Нужна дисциплина:
+ *               не добавлять код, пока нет тестов, покрывающих его.
+ *               Это проще всего сделать, практикуя разработку
+ *               через тестирование.
  *
- *   2. The system is large and poorly understood ("legacy") and even getting a
- *      working happy-path test to work is a challenge. Writing test cases
- *      covering edgecases and error handling could require an overwhelming
- *      amount of analysis effort to first figure out what those edge cases &
- *      potential errors even are.
+ *   2. Система большая и запутанная («легаси»). Даже тесты по «счастливому»
+ *      пути — уже победа. Написание тестов, покрывающих краевые случаи
+ *      и обработку ошибок, — неподъемная задача, требующая анализа
+ *      и исследования потенциальных краевых случаев и ошибок.
  *
- *      Deodorizor: some people detect and address this sort of "false coverage"
- *                  with what's called Mutation Testing, wherein a wide array of
- *                  inputs and expected outputs are thrown at a system to find
- *                  gaps in the implementation.
+ *      Лечение: кто-то находит и исправляет такое «ложное покрытие» с помощью
+ *               мутационного тестирования: система тестируется относительно
+ *               огромного списка входных и выходных данных.
  *
- * Example notes:
- *   In the `curl` function below, there's some explicit error handling that's
- *   never covered by the test. If you read the implementation of `get`, however,
- *   you should be able to add a test that will assert that the subject properly
- *   propogates errors to the caller.
+ * Замечания к примеру:
+ *   В функции `curl` есть обработка ошибок, не покрытая тестами. Посмотрите
+ *   реализацию `get` и добавьте тест, проверяющий обработку
+ *   и передачу ошибок в `curl`.
  *
- *   [Note: teenytest uses an optional `done` callback when defining a test to
- *   mark it as async. Typically, we pass an error argument to `done` to trigger
- *   a test failure when an async method calls back with an error; however, if
- *   the error is expected, assert the error explicitly and call back with
- *   `done(null)` to keep the test green.]
+ *   [teenytest использует необязательный колбек `done` для определения теста
+ *   с асинхронным поведением. Обычно мы передаем результат выполнения
+ *   асинхронного кода в `done`, чтобы свалить тест при ошибке. Но, если мы
+ *   ожидаем увидеть ошибку, лучше проверить ее явно и вызвать `done(null)`.
  */
 
-// Subject under test
+// Тестируемый модуль
 function curl (url, cb) {
   get(url, function (er, data) {
     if (er) return cb(er)
@@ -50,7 +43,7 @@ function curl (url, cb) {
   })
 }
 
-// Test
+// Тесты
 module.exports = {
   happyPath: function (done) {
     curl('https://google.com', function (er, data) {
@@ -60,7 +53,7 @@ module.exports = {
   }
 }
 
-// Fake production implementations to simplify example test of subject
+// Фейковая реализация
 function get (url, cb) {
   if (url.indexOf('https') !== 0) {
     cb(new Error('SSL only!'))

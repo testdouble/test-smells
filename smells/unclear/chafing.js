@@ -1,10 +1,10 @@
-/* Smell: Chafing Tests
+/* Chafing Tests
  *
- * Odor: A test in which the author attempts to eliminate as much textual
+ * Запах: A test in which the author attempts to eliminate as much textual
  *       duplication as possible, even if the indirection it introduces confuses
  *       future readers of the intention and behavior of the test
  *
- * Known causes:
+ * Причины:
  *   1. Seeing duplication makes most developers uncomfortable, in part because
  *      DRY ("Don't repeat yourself") has become a ubiquitous guiding principle
  *      of design. So when a developer sees duplication in a test, their kneejerk
@@ -35,7 +35,7 @@
  *                  benefits against the risks that those tests' story will be
  *                  dilluted.
  *
- * Example notes:
+ * Замечания к примеру:
  *   The abstractions in the example below (both `generateCode` and
  *   `assert.codePricing`) obscure the story the test could be telling about
  *   what `pricingForCode` does. Moreover, the assertion contains a calculation
@@ -45,7 +45,7 @@
  *   the subject.
  */
 
-// Subject under test
+// Тестируемый модуль
 function pricingForCode (code) {
   var firstFactor = 0
   if (code[0] === 'A') firstFactor = 65
@@ -60,7 +60,7 @@ function pricingForCode (code) {
   return firstFactor * secondFactor
 }
 
-// Test
+// Тесты
 var generateCode = require('../../support/generate-code')
 module.exports = {
   codeOneIsCorrect: function () {

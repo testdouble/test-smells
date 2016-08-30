@@ -1,7 +1,7 @@
-/* Smell: Tangential tests
+/* Tangential tests
  */
 
-// Subject under test
+// Тестируемый модуль
 function setAttr (obj, name, value, type) {
   if (type) {
     var valid = true
@@ -28,7 +28,7 @@ function setAttr (obj, name, value, type) {
   obj[name] = value
 }
 
-// Test
+// Тесты
 module.exports = {
   noType: function () {
     var user = {}
