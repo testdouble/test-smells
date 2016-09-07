@@ -1,4 +1,4 @@
-/* Time bombs
+/* Временные бомбы
  *
  * Because of poor date management, the example below will fail erratically in
  * two ways:
@@ -58,4 +58,3 @@ TimeCard.prototype.__workedOnWeekend = function () {
          this.endTime.getDay() === 0 ||
          this.endTime.getDay() === 6
 }
-

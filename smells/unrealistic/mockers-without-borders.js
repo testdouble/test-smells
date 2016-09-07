@@ -1,4 +1,4 @@
-/* Mockers without borders
+/* Моки без границ
  *
  * Reading this example, some might jump to a preferred rule-of-thumb for when
  * to replace a real dependency with a fake one. Because consistency is

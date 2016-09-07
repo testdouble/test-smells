@@ -1,4 +1,4 @@
-/* X-Ray Specs
+/* Рентгеновские тесты
  *
  * In this example, you can see the test is routinely exploiting its ability
  * to access private variables on the subject to do its assertions (when the
@@ -73,4 +73,3 @@ SeatMap.prototype.__qualifyFareClassForSeat = function (seat) {
   var allowed = parseInt(seat.match(/^(\d+)/)[0], 10) > 10
   _.set(this.__approvals, this.fareClass + '.' + seat, allowed)
 }
-

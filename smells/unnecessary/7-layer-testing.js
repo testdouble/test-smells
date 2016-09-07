@@ -1,4 +1,4 @@
-/* 7-layer testing
+/* Семислойное тестирование
  *
  *
  * Challenges:
