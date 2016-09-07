@@ -1,4 +1,4 @@
-/* Invasion of Privacy
+/* Вторжение в частную жизнь
  *
  * In the example below, the test of the private function drove out two
  * if-statements that are simultaneously unreachable in production (e.g. dead

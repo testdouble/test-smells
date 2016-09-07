@@ -1,4 +1,4 @@
-/* Fantasy Tests
+/* Фантастические тесты
  *
  * Passing tests of code that wouldn't actually work in production
  */
