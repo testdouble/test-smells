@@ -4,7 +4,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/4bj4uiu7q894scg2/branch/master?svg=true)](https://ci.appveyor.com/project/searls/test-smells/branch/master)
 
 _Этот репозиторий — перевод [testdouble/test-smells](https://github.com/testdouble/test-smells).
-Запросто может оказаться так, что он уже устарел._
+Запросто может оказаться так, что перевод уже устарел._
 
 This repository is designed to serve as a sandbox for exploring a handful of test
 smells that are common in real-world test suites.
