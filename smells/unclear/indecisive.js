@@ -1,6 +1,6 @@
-/* Indecisive Tests
+/* Нерешительные тесты
  *
- * primitive obsession / lack of good test controls
+ * увлеченность примитивами или отсутствие контроля в тестах
  */
 
 // Тестируемый модуль
