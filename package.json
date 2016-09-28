@@ -8,7 +8,7 @@
     "test": "teenytest --helper support/js/helper.js \"smells/**/*.js\" ",
     "test:one": "teenytest --helper support/js/helper.js",
     "style": "standard",
-    "ci": "CI=true npm run test && npm run style"
+    "ci": "cross-env CI=true npm run test && npm run style"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,10 @@
   },
   "homepage": "https://github.com/testdouble/smells#readme",
   "devDependencies": {
+    "core-assert": "^0.2.0",
+    "cross-env": "^3.0.0",
     "standard": "^7.0.1",
     "teenytest": "^5.0.0",
-    "core-assert": "^0.2.0",
     "testdouble": "^1.4.2"
   },
   "dependencies": {
