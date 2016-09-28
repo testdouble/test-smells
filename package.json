@@ -8,7 +8,7 @@
     "test": "teenytest --helper support/js/helper.js \"smells/**/*.js\" ",
     "test:one": "teenytest --helper support/js/helper.js",
     "style": "standard",
-    "ci": "npm run test && npm run style"
+    "ci": "CI=true npm run test && npm run style"
   },
   "repository": {
     "type": "git",
