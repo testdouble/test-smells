@@ -7,13 +7,21 @@ install:
   - ps: Install-Product node $env:nodejs_version
   - npm version
   - npm install
+  - set PATH=C:\Ruby22\bin;%PATH%
+  - bundle install
 
 cache:
   - '%APPDATA%\npm-cache'
 
 build: off
 
-test_script:
+before_test:
   - npm version
+  - ruby -v
+  - gem -v
+  - bundle -v
+
+test_script:
+  - bundle exec rake
   - cmd: npm run ci
 
