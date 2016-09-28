@@ -61,7 +61,7 @@ function pricingForCode (code) {
 }
 
 // Test
-var generateCode = require('../../support/generate-code')
+var generateCode = require('../../../support/js/generate-code')
 module.exports = {
   codeOneIsCorrect: function () {
     var code = generateCode.one()

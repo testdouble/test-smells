@@ -18,6 +18,5 @@ module.exports = function (assert) {
       var expected = code.charCodeAt(0) * Math.round((1000 - (code.length * 39)) / 42)
       assert.equal(actual, expected)
     }
-
   })
 }

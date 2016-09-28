@@ -17,7 +17,7 @@
  *                  made up of (inherently untested) logic, can usually be
  *                  replaced by a deep-equals or a deep-contains utility, like
  *                  the ones provided by underscore/lodash. See:
- *                  support/decorate-assertions.js for an example of a
+ *                  support/js/decorate-assertions.js for an example of a
  *                  (half-baked) `includes` assertion.
  *
  *   2. The subject may be doing a lot, typically by returning a value but also
