@@ -13,18 +13,40 @@ Test Double](mailto:hello+testsmells@testdouble.com)!
 
 ## Getting started
 
-First, clone the repo, change into its directory, and make sure your
-[Node.js](http://nodejs.org) environment is working okay:
+### Ruby
+
+This repo supports [Ruby](https://www.ruby-lang.org) 1.9 & up. Install and the
+tests with:
+
+```
+$ bundle
+$ bundle exec rake
+```
+
+Most tests should pass. (If a few tests fail, that's okay. Some of the tests are
+designed to fail erratically.)
+
+### Node.js
+
+This repo should work with [Node.js](http://nodejs.org) 4.x & up. Install and run
+the tests with:
 
 ```
 $ npm install
 $ npm test
 ```
 
-The tests should pass. (If a few tests fail, that's okay. Some of the tests are
+Most tests should pass. (If a few tests fail, that's okay. Some of the tests are
 designed to fail erratically.)
 
-## Working through the repo
+## How to use this Repo
+
+This repo was created to facilitate workshops conducted by [Test
+Double](http://testdouble.com), a software agency dedicated to improving how the
+world makes software. It is shared here, because it may also be valuable as a
+workbook of sorts, for you to peruse at your own direction and pace. If you're
+interested in hearing more about what the workshop format for this project is
+like, please [drop us a line](mailto:hello+testsmells@testdouble.com)!
 
 Each of our odorous tests are organized under the `smells/` directory and broken
 down into categories.
@@ -35,13 +57,23 @@ Each smell's file listing is structured the same way, starting with:
 
 #### The description
 
-Each file starts with a comment which contains:
+Each test resides in a directory which contains a README.md file with the
+following structure:
 
-* A simple description of the smell
-* An enumeration of the problems the smell might indicate
-* For each potential problem, a general prescribed approach for refactoring the
-test (or the test's subject) to eliminate the smell
-* Optionally, a URL pointing to a real-world example of the smell
+* The name of the test smell & a brief description
+* The "odor" emanating from the example test subject and test
+* An enumeration of the problems the smell might (or might not!) indicate; for
+each potential problem:
+  * A description of the nature of the problem
+  * General tips on how to "deodorize" the smell
+* Details about the example
+  * A root cause analysis of the smell
+  * A challenge to the reader to improve the design of the test and/or test
+  subject
+* Language-specific notes (common examples, likelihood of occurence, etc.)
+  * Ruby
+  * JavaScript
+* Additional resources about the smell
 
 Remember, not every smell you detect in the wild indicates an actual problem!
 Smells are simply surface indications of common problems and not necessarily
@@ -49,7 +81,7 @@ problematic in-and-of themselves.
 
 #### The subject under test
 
-After the comment will be one to several functions meant to be the "production"
+In each test will be one to several functions meant to be the "production"
 source code. Typically these would be broken out into a separate file, but to
 keep everything straightforward, each smell is kept to a single file listing.
 
@@ -57,16 +89,10 @@ For the purpose of keeping the examples easy-to-understand, the subject code is
 typically minimal and trivial, unless greater complexity is called for by the
 test smell itself.
 
-#### The smelly test
+#### Test Frameworks
 
-This repo's tests are written for our
-[teenytest](https://github.com/testdouble/teenytest) module, which means that
-the value of `module.exports` is considered to be "the test" by the test runner.
-If `module.exports` is set to a function, then that's the only test in the file
-listing. If a plain object is assigned to `module.exports`, however, then each
-function on the object is considered to be its own test. It may be the case that only
-one of the tests exported by a file exhibit the smell in the description, or that
-multiple tests could stand to be reworked.
+* Ruby tests are written in [Minitest](https://github.com/seattlerb/minitest)
+* JavaScript tests are written in our own [teenytest](https://github.com/testdouble/teenytest)
 
 ### Working with the tests
 
@@ -87,22 +113,6 @@ Remember, the tests themselves are untested, so be sure that your
 new-and-improved test still works! Consider forcing the test to break, verifying
 that a message indicates the test is still doing its job before you commit your
 changes. As we like to say, "never trust a test you haven't seen fail."
-
-#### Compare with our solution
-
-**[Update: the solution branch hasn't been created yet. Fork the repo and submit
-your own!]**
-
-This repo contains a git branch named `solutions` which will tidy up the tests to
-our own liking. If you're interested in seeing our approach to deodorizing a
-particular test smell, stash or commit your own changes and `git checkout
-solutions` to take a peek. When you're done, switch back to your branch with `git
-checkout -`.
-
-If your solution doesn't look like ours, don't lose heart! There's more than one
-way to write a good test. So long as you've resolved the smell and you feel like
-your changes communicate the intent well, you've probably left things in a better
-state than where you found them.
 
 ### Help improve this project
 
