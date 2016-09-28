@@ -49,7 +49,21 @@ interested in hearing more about what the workshop format for this project is
 like, please [drop us a line](mailto:hello+testsmells@testdouble.com)!
 
 Each of our odorous tests are organized under the `smells/` directory and broken
-down into categories.
+down into these categories:
+
+* **Insufficient** - tests that fail to fully specify the behavior of their
+subject under test
+* **Unclear** - tests whose organization and design can mislead future
+maintainers, incidentally increasing their carrying cost
+* **Unnecessary** - tests that do more than they need to or are otherwise
+inessential
+* **Unrealistic** - tests that undermine their intended value by inappropriately
+replacing real things with fake things
+* **Unreliable** - tests that behave erratically based on the time, machine,
+configuration, or environment
+
+In each category's directory is a listing of several examples, each codified by
+a test.
 
 ### The tests
 
