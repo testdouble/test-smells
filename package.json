@@ -3,12 +3,12 @@
   "private": true,
   "version": "0.0.1",
   "description": "Some example test smells",
-  "main": "support/.not-a-requireable-module.js",
+  "main": "support/js/.not-a-requireable-module.js",
   "scripts": {
-    "test": "teenytest --helper support/helper.js \"smells/**/*.js\" ",
-    "test:one": "teenytest --helper support/helper.js",
+    "test": "teenytest --helper support/js/helper.js \"smells/**/*.js\" ",
+    "test:one": "teenytest --helper support/js/helper.js",
     "style": "standard",
-    "ci": "npm run test && npm run style"
+    "ci": "cross-env CI=true npm run test && npm run style"
   },
   "repository": {
     "type": "git",
@@ -21,9 +21,10 @@
   },
   "homepage": "https://github.com/testdouble/smells#readme",
   "devDependencies": {
+    "core-assert": "^0.2.0",
+    "cross-env": "^3.0.0",
     "standard": "^7.0.1",
-    "teenytest": "^4.0.0",
-    "assert": "^1.3.0",
+    "teenytest": "^5.0.0",
     "testdouble": "^1.4.2"
   },
   "dependencies": {

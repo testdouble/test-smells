@@ -1,6 +1,10 @@
-language: node_js
-node_js:
-  - 6
-  - 4
-  - 0.10
-script: npm run ci
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.3.0
+before_install:
+  - nvm install node
+  - npm install
+script:
+  - bundle exec rake
+  - npm run ci
