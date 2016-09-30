@@ -96,7 +96,7 @@ class Repo
   end
 
   def require_relation!(obj, id_key, prop)
-    relation = find(obj[id_key])
+    relation = find(obj.send(id_key))
     if relation.nil? || relation.send(prop).nil?
       binding.pry
       raise "Error: \"#{prop}\" required on \"#{id_key}\" of \"#{obj}\""
