@@ -17,7 +17,7 @@ module.exports = {
   fiveStarMember: function () {
     var user = {loggedIn: true}
 
-    var result = rankHotelReview(user, "title", "body", 5)
+    var result = rankHotelReview(user, 'title', 'body', 5)
 
     assert.equal(result, 20)
   },
@@ -25,7 +25,7 @@ module.exports = {
   threeStarAnonymous: function () {
     var user = {loggedIn: false}
 
-    var result = rankHotelReview(user, "title", "body", 3)
+    var result = rankHotelReview(user, 'title', 'body', 3)
 
     assert.equal(result, 7)
   }
