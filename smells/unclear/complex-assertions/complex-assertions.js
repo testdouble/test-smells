@@ -79,10 +79,13 @@ module.exports = {
   },
   incrementsKidsAgeToo: function () {
     var people = [
-      {name: 'Joe', age: 42, kids: [
-        {name: 'Jack', age: 8},
-        {name: 'Jill', age: 7}
-      ]}
+      {
+        name: 'Joe',
+        age: 42,
+        kids: [
+          {name: 'Jack', age: 8},
+          {name: 'Jill', age: 7}
+        ]}
     ]
 
     var results = incrementAge(people)

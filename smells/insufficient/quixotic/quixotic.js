@@ -4,7 +4,7 @@ function rankHotelReview (user, title, text, stars) {
   if (!user.loggedIn) rank -= 3
   if (stars === 5 || stars === 1) rank += 10
   if (rank > 1 && isObscene(title)) {
-    if (user.age <= 13) throw 'Underage swearing!'
+    if (user.age <= 13) throw new Error('Underage swearing!')
     rank = 1
   } else if (rank > 3 && isObscene(text)) {
     if (user.occupation !== 'sailor') rank = 3
