@@ -1,6 +1,3 @@
-/* Smell: Long tests
- */
-
 // Subject under test
 function Stack () {
   this.items = []
