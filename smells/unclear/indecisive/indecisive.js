@@ -1,8 +1,3 @@
-/* Smell: Indecisive Tests
- *
- * primitive obsession / lack of good test controls
- */
-
 // Subject under test
 function joinPath (fragments) {
   var separator, pattern

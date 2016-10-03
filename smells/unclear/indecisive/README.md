@@ -1,5 +1,7 @@
 # Test Smell: Indecisive
 
+primitive obsession / lack of good test controls
+
 ## Odor Emitted
 
 ## Known Causes
