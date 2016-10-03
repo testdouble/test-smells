@@ -1,6 +1,3 @@
-/* Smell: Tangential tests
- */
-
 // Subject under test
 function setAttr (obj, name, value, type) {
   if (type) {
