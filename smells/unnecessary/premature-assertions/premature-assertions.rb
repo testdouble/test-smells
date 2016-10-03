@@ -51,7 +51,7 @@ class Plane
   end
 
   def started?
-    @started
+    @started if defined?(@started)
   end
 
   def taxi
