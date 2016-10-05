@@ -13,6 +13,7 @@ class MockersWithoutBorders < SmellTest
     @subject = App.new
     super
   end
+
   def test_pays_merchants_with_totals
     transactions = [
       { merchant: 'Nike', desc: 'Shoes', amount: 119.20 },
@@ -22,15 +23,13 @@ class MockersWithoutBorders < SmellTest
     ]
     start_date = Date.civil(2015, 1, 1)
     end_date = Date.civil(2015, 12, 31)
+    stub(@subject, :fetch, transactions, [start_date, end_date])
+    verify(@subject, :submit, [
+      { merchant: 'Nike', total: 129.30 },
+      { merchant: 'Apple', total: 859.98 }
+    ])
 
-    stub(@subject, :fetch, transactions, [start_date, end_date]) do
-      verify(@subject, :submit, [
-        { merchant: 'Nike', total: 129.30 },
-        { merchant: 'Apple', total: 859.98 }
-      ]) do
-          @subject.pay_merchants(start_date, end_date)
-      end
-    end
+    @subject.pay_merchants(start_date, end_date)
   end
 end
 

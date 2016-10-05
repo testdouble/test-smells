@@ -32,21 +32,20 @@ class ContaminatedTestSubject < SmellTest
   end
 
   def test_when_mature_current_value_is_mature_value
-    stub(@subject, :mature?, true) do
-      result = @subject.current_value
+    stub(@subject, :mature?, true)
 
-      assert_equal 1000, result
-    end
+    result = @subject.current_value
+
+    assert_equal 1000, result
   end
 
   def test_when_immature_current_value_is_prorated
-    stub(@subject, :mature?, false) do
-      stub(@subject, :today, Time.new(2005, 5, 15)) do
-        result = @subject.current_value
+    stub(@subject, :mature?, false)
+    stub(@subject, :today, Time.new(2005, 5, 15))
 
-        assert_equal 500, result
-      end
-    end
+    result = @subject.current_value
+
+    assert_equal 500, result
   end
 end
 

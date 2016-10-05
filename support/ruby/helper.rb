@@ -2,6 +2,16 @@ require "minitest/autorun"
 require "pry"
 
 class SmellTest < Minitest::Test
+  def initialize(*args)
+    @on_teardowns = []
+    super
+  end
+
+  def teardown
+    @on_teardowns.each(&:call)
+    super
+  end
+
   def assert_code_pricing(code, actual)
     expected = code.codepoints.first * ((1000 - (code.length * 39.0)) / 42).round
 
@@ -17,10 +27,10 @@ class SmellTest < Minitest::Test
       end
     }
 
-    yield
-
-    target.class.send(:remove_method, method)
-    target.class.send(:define_method, method, &og_method)
+    on_teardown do
+      target.class.send(:remove_method, method)
+      target.class.send(:define_method, method, &og_method)
+    end
   end
 
   def verify(target, method, expected_args)
@@ -31,16 +41,22 @@ class SmellTest < Minitest::Test
       actual_arg_sets << actual_args
     }
 
-    yield
-
-    target.class.send(:remove_method, method)
-    target.class.send(:define_method, method, &og_method)
-    if !actual_arg_sets.include?(expected_args)
-      raise <<-MSG.gsub(/^ {8}/,'')
-        Expected #{target.class}##{method} to have been called with #{expected_args},
-        but #{actual_arg_sets.empty? ? "was never called." : "was called with:" }
-        #{actual_arg_sets.each_with_index.map { |a,i| "  #{i+1}.) #{a}" }.join("\n")}
-      MSG
+    on_teardown do
+      target.class.send(:remove_method, method)
+      target.class.send(:define_method, method, &og_method)
+      if !actual_arg_sets.include?(expected_args)
+        raise <<-MSG.gsub(/^ {10}/,'')
+          Expected #{target.class}##{method} to have been called with #{expected_args},
+          but #{actual_arg_sets.empty? ? "was never called." : "was called with:" }
+          #{actual_arg_sets.each_with_index.map { |a,i| "  #{i+1}.) #{a}" }.join("\n")}
+        MSG
+      end
     end
+  end
+
+  private
+
+  def on_teardown(&blk)
+    @on_teardowns << blk
   end
 end
