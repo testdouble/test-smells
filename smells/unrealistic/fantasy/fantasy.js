@@ -1,10 +1,5 @@
-/* Smell: Fantasy Tests
- *
- * Passing tests of code that wouldn't actually work in production
- */
-
 // Subject under test
-var authorizor = {
+var authorizer = {
   roles: function (user, password) {
     if (authenticator.login({user: user, password: password})) {
       return ['admin', 'developer', 'manager']
@@ -23,14 +18,14 @@ module.exports = {
   allRolesIfAuthenticated: function () {
     td.when(authenticator.login({user: 'hi', password: 'bye'})).thenReturn(true)
 
-    var result = authorizor.roles('hi', 'bye')
+    var result = authorizer.roles('hi', 'bye')
 
     assert.deepEqual(result, ['admin', 'developer', 'manager'])
   },
   noRolesIfNotAuthenticated: function () {
     td.when(authenticator.login({user: 'hi', password: 'no!'})).thenReturn(false)
 
-    var result = authorizor.roles('hi', 'no!')
+    var result = authorizer.roles('hi', 'no!')
 
     assert.deepEqual(result, [])
   },

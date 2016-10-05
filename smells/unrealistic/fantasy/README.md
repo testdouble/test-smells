@@ -2,6 +2,8 @@
 
 ## Odor Emitted
 
+Passing tests of code that wouldn't actually work in production
+
 ## Known Causes
 
 ## About this Example
