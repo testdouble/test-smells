@@ -7,4 +7,15 @@ class SmellTest < Minitest::Test
 
     assert_equal expected, actual
   end
+
+  def stub(target, method, response)
+    og_method = target.method(method)
+    target.class.send(:remove_method, method)
+    target.class.send(:define_method, method) { response }
+
+    yield
+
+    target.class.send(:remove_method, method)
+    target.class.send(:define_method, method, &og_method)
+  end
 end

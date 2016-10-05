@@ -1,6 +1,3 @@
-/* Smell: Contaminated Test Subject
- */
-
 // Subject under test
 function SavingsBond (startDate, matureValue, termInYears) {
   this.startDate = startDate
