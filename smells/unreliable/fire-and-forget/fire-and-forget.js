@@ -1,6 +1,3 @@
-/* Smell: Fire and Forget
- */
-
 // Subject under test
 function loadUser (id, cb) {
   var path = '/users/' + id
