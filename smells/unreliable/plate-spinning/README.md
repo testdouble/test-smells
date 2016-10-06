@@ -14,6 +14,8 @@
 
 ### Ruby
 
+TODO: Think up a good example that's applicable to Ruby.
+
 ### JavaScript
 
 ## Additional Resources

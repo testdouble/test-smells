@@ -1,6 +1,3 @@
-/* Smell: Plate-spinning
- */
-
 // Subject under test
 function download (path, cb) {
   get(path, function (er, value) {
