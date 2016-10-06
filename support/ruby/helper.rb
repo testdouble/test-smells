@@ -19,22 +19,24 @@ class SmellTest < Minitest::Test
   end
 
   def stub(target, method, response, expected_args = [])
-    og_method = target.method(method)
+    og_method = target.class.instance_method(method)
     target.class.send(:remove_method, method)
-    target.class.send(:define_method, method) { |*actual_args|
-      if !expected_args || expected_args == actual_args
+    target.class.send(:define_method, method) { |*actual_args, &blk|
+      if target == self && (!expected_args || expected_args == actual_args)
         response
+      else
+        og_method.bind(self).call(*actual_args, &blk)
       end
     }
 
     on_teardown do
       target.class.send(:remove_method, method)
-      target.class.send(:define_method, method, &og_method)
+      target.class.send(:define_method, method, og_method)
     end
   end
 
   def verify(target, method, expected_args)
-    og_method = target.method(method)
+    og_method = target.class.instance_method(method)
     actual_arg_sets = []
     target.class.send(:remove_method, method)
     target.class.send(:define_method, method) { |actual_args|
@@ -43,7 +45,7 @@ class SmellTest < Minitest::Test
 
     on_teardown do
       target.class.send(:remove_method, method)
-      target.class.send(:define_method, method, &og_method)
+      target.class.send(:define_method, method, og_method)
       if !actual_arg_sets.include?(expected_args)
         raise <<-MSG.gsub(/^ {10}/,'')
           Expected #{target.class}##{method} to have been called with #{expected_args},
