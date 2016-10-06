@@ -1,6 +1,3 @@
-/* Smell: Surreal tests
- */
-
 // Subject under test
 var _ = require('lodash')
 function weighClothes (clothes) {
