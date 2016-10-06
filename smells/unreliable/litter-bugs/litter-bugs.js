@@ -1,6 +1,3 @@
-/* Smell: Litter Bugs
- */
-
 // Subject under test
 var allTimeLogins = 0
 
