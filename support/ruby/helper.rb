@@ -1,4 +1,5 @@
 require "minitest/autorun"
+require "async_minitest_plugin"
 require "pry"
 
 class SmellTest < Minitest::Test
