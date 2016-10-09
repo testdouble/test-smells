@@ -28,6 +28,8 @@ end
 
 # Test
 class TimeBombs < SmellTest
+  include UnreliableMinitestPlugin
+
   def setup
     @subject = TimeCard.new(15)
     @now = Time.new

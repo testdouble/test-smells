@@ -21,6 +21,8 @@ end
 
 # Test
 class LitterBugs < SmellTest
+  include UnreliableMinitestPlugin
+
   def setup
     @game = Game.instance
   end

@@ -10,6 +10,8 @@ end
 
 # Test
 class FireAndForget < SmellTest
+  include UnreliableMinitestPlugin
+
   def test_gets_user_and_decorates_path
     load_user(42) { |er, user|
       assert_equal "/users/42", user.resolved_via
