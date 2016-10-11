@@ -6,22 +6,20 @@ install:
   - git rev-parse HEAD
   - ps: Install-Product node $env:nodejs_version
   - npm version
-  - npm install
+  - npm install -g yarnpkg
+  - yarn
   - set PATH=C:\Ruby22\bin;%PATH%
   - bundle install
-
-cache:
-  - '%APPDATA%\npm-cache'
 
 build: off
 
 before_test:
-  - npm version
+  - yarn -v
   - ruby -v
   - gem -v
   - bundle -v
 
 test_script:
   - bundle exec rake
-  - cmd: npm run ci
+  - cmd: yarn run ci
 
