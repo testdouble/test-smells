@@ -2,7 +2,8 @@ language: ruby
 rvm: 2.3.0
 before_install:
   - nvm install node
-  - npm install
+  - npm i -g yarnpkg
+  - yarn
 script:
   - bundle exec rake
-  - npm run ci
+  - yarn run ci

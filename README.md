@@ -32,8 +32,9 @@ This repo should work with [Node.js](http://nodejs.org) 4.x & up. Install and ru
 the tests with:
 
 ```
-$ npm install
-$ npm test
+$ npm install -g yarnpkg
+$ yarn
+$ yarn test
 ```
 
 Most tests should pass. (If a few tests fail, that's okay. Some of the tests are
