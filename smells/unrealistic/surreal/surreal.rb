@@ -1,8 +1,6 @@
 # Subject under test
 def weigh_clothes(clothes)
-  clothes.reduce(0) { |memo, item|
-    memo + item.weight
-  }.round
+  clothes.map { |item| item.weight }.reduce(:+).round
 end
 
 # Test
