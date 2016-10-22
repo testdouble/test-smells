@@ -21,6 +21,7 @@ tests with:
 ```
 $ bundle
 $ bundle exec rake
+$ bundle exec rake test <relative-path>  # to run a subset of tests
 ```
 
 Most tests should pass. (If a few tests fail, that's okay. Some of the tests are
