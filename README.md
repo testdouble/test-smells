@@ -13,6 +13,22 @@ Test Double](mailto:hello+testsmells@testdouble.com)!
 
 ## Getting started
 
+### Node.js
+
+This repo should work with [Node.js](http://nodejs.org) 4.x & up. We're using 
+Yarn to ensure everyone has a deterministic dependency tree.
+
+Install and run the tests with:
+
+```
+$ npm install -g yarnpkg
+$ yarn
+$ yarn test
+```
+
+Most tests should pass. (If a few tests fail, that's okay. Some of the tests are
+designed to fail erratically.)
+
 ### Ruby
 
 This repo supports [Ruby](https://www.ruby-lang.org) 1.9 & up. Install and the
@@ -21,20 +37,6 @@ tests with:
 ```
 $ bundle
 $ bundle exec rake
-```
-
-Most tests should pass. (If a few tests fail, that's okay. Some of the tests are
-designed to fail erratically.)
-
-### Node.js
-
-This repo should work with [Node.js](http://nodejs.org) 4.x & up. Install and run
-the tests with:
-
-```
-$ npm install -g yarnpkg
-$ yarn
-$ yarn test
 ```
 
 Most tests should pass. (If a few tests fail, that's okay. Some of the tests are
