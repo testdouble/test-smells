@@ -59,4 +59,3 @@ SavingsBond.prototype.matureDate = function () {
 SavingsBond.prototype.termInMs = function () {
   return this.termInYears * 365.25 * 24 * 60 * 60 * 1000
 }
-

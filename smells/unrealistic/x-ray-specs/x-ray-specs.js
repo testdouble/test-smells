@@ -49,4 +49,3 @@ SeatMap.prototype.__qualifyFareClassForSeat = function (seat) {
   var allowed = parseInt(seat.match(/^(\d+)/)[0], 10) > 10
   _.set(this.__approvals, this.fareClass + '.' + seat, allowed)
 }
-

@@ -20,4 +20,3 @@ function find (id) {
     return Object.create({ name: 'Fred' })
   }
 }
-
