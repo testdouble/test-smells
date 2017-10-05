@@ -86,4 +86,3 @@ var factors = {
     }
   }
 }
-
