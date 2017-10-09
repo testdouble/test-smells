@@ -65,7 +65,7 @@ The test-scoped abstractions in the example test (both the code "generation"
 methods and the custom code pricing assertion method) obscure the story the test
 could be telling about what the pricing method does. Surely, at the time of its
 writing, whoever "DRYed up" the code generation into a fixture and the
-expectation into a custom asseriton method was able to keep all of this in their
+expectation into a custom assertion method was able to keep all of this in their
 head. However, as time goes one, expecting future maintainers of a test to
 juggle any more than two file listings at a time is unrealistic. Just as a
 business contract becomes orders of magnitude more complex when there are more

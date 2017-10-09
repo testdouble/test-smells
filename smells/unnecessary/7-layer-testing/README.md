@@ -36,7 +36,7 @@ suite(s).
 By way of this redundant code coverage, the deeper the layer in which a change to
 the system is made, the more tests above it will break. Worse, those tests will
 be by their nature more integrated and slower than the lower-order tests. Even
-more insidiuously, this phenomenon tends not to cause much worry until the test
+more insidiously, this phenomenon tends not to cause much worry until the test
 suite takes long enough that developers fall out of the habit of running it
 locally. At that point, we've seen a number of team whose test suites had served
 them relatively well hit a sudden inflection point at which a half-day story can

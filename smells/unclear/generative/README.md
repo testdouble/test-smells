@@ -14,7 +14,7 @@ the same data in with the logic (often in branch controls like if/switch).
 Because the subject contains a lot of branching that's based on this embedded
 data, fully covering the subject requires lots and lots of test cases. And if
 those test cases start to look repetitive, then the immediate impulse might be
-to address that repitition in the test.
+to address that repetition in the test.
 
 #### Deodorizer
 
