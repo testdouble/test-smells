@@ -21,8 +21,8 @@ with calls to more complex objects. More generally, it can refer to code for
 which some components are very concrete or rudimentary and others are
 significantly more abstract and sophisticated.
 
-To use a business analogy, consider how unusual it would be for a mailroom
-assistant to be called up to a an executive meeting in the boardroom for their
+To use a business analogy, consider how unusual it would be for a mail room
+assistant to be called up to an executive meeting in the boardroom for their
 input. Or how out-of-sorts such an executive might be when asked to sort and
 direct inbound mail.
 
