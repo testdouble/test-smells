@@ -2,7 +2,7 @@
 
 def increment_age(people)
   people.dup.map { |person|
-    if person.age.kind_of?(Fixnum)
+    if person.age.kind_of?(Numeric)
       person.age += 1
     end
     if person.kids.kind_of?(Array)
