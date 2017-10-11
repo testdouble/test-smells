@@ -89,7 +89,7 @@ Once you've identified your options, consider the impact of each of them. For
 instance, perhaps you could simply normalize each actual and expected path using
 a trusted method—that would remove the variability, but would it also introduce
 a vector by which the tests could pass on both platforms even when the code
-wasn't workign?
+wasn't working?
 
 ## Language-specific Notes
 
