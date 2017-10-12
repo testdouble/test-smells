@@ -86,6 +86,9 @@ configuration, or environment
 In each category's directory is a listing of several examples, each codified by
 a test.
 
+If you're exploring this repository without having sniffed a specific smell,
+feel free to explore the examples by [themes](./THEMES.md).
+
 ### The tests
 
 Each smell's file listing is structured the same way, starting with:
