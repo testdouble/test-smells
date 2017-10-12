@@ -15,7 +15,7 @@ Test Double](mailto:hello+testsmells@testdouble.com)!
 
 ### Node.js
 
-This repo should work with [Node.js](http://nodejs.org) 4.x & up. We're using 
+This repo should work with [Node.js](http://nodejs.org) 4.x & up. We're using
 Yarn to ensure everyone has a deterministic dependency tree.
 
 #### Install and run the tests with Yarn:
@@ -25,9 +25,9 @@ $ npm install -g yarnpkg
 $ yarn
 $ yarn test
 
-Run a single test
+# Run a single test
 $ yarn test:one [Path to test]
-Example:
+# Example:
 $ yarn test:one smells/insufficient/invisible-assertions/invisible-assertions.js
 ```
 
@@ -38,10 +38,10 @@ $ yarn test:one smells/insufficient/invisible-assertions/invisible-assertions.js
 $ npm install
 $ npm test
 
-Run a single test
-$ npm test:one [Path to test]
-Example:
-$ npm test:one smells/insufficient/invisible-assertions/invisible-assertions.js
+# Run a single test
+$ npm run test:one [Path to test]
+# Example:
+$ npm run test:one smells/insufficient/invisible-assertions/invisible-assertions.js
 ```
 
 Most tests should pass. (If a few tests fail, that's okay. Some of the tests are
