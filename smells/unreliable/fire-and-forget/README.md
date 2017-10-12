@@ -83,6 +83,8 @@ Minitest plugin named
 Most JavaScript testing libraries provide facilities for waiting for
 asynchronous operations to exit.
 
+#### The Done Callback
+
 The most commonly seen is a done callback:
 
 ```js
@@ -111,6 +113,45 @@ it('does stuff', function (done) {
 
 Additionally, since the `done` callback function takes the conventional error
 argument, any truthy `er` value will also fail the test.
+
+#### With Promises
+Rather than use call backs, asynchronous processing could be accomplished in
+JavaScript with promises. This example will fail to execute the assertion in the
+same manner as the version with a callback.
+
+```js
+it('does stuff', function () {
+  doStuff()
+  .then(function (stuff) {
+    expect(stuff).to.be('pants')
+  })
+})
+```
+
+Testing frameworks like Jasmine & Mocha (and our own teenytest, which this repo
+uses) will wait for your promise to resolve if you return the promise within
+the test.
+
+```js
+it('does stuff', function () {
+  return doStuff()
+  .then(function (stuff) {
+    expect(stuff).to.be('pants')
+  })
+})
+```
+
+#### With async / await
+ES.next users have an additional option for testing asynchronous code. The
+`await` and `async` keywords can be used to ensure asynchronous expectations
+are tested. This style has the added benefit of allowing asynchronous tests to
+also follow the [Arrange-Act-Assert](https://github.com/testdouble/contributing-tests/wiki/Arrange-Act-Assert) pattern of testing.
+
+it('does stuff', async function () {
+  var stuff = await doStuff()
+
+  expect(stuff).to.be('pants')
+})
 
 ## Additional Resources
 
