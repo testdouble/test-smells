@@ -24,6 +24,11 @@ Yarn to ensure everyone has a deterministic dependency tree.
 $ npm install -g yarnpkg
 $ yarn
 $ yarn test
+
+Run a single test
+$ yarn test:one [Path to test]
+Example:
+$ yarn test:one smells/insufficient/invisible-assertions/invisible-assertions.js
 ```
 
 
@@ -32,6 +37,11 @@ $ yarn test
 ```
 $ npm install
 $ npm test
+
+Run a single test
+$ npm test:one [Path to test]
+Example:
+$ npm test:one smells/insufficient/invisible-assertions/invisible-assertions.js
 ```
 
 Most tests should pass. (If a few tests fail, that's okay. Some of the tests are
