@@ -34,8 +34,8 @@ that are redundantly verified, etc.
 
 The best disinfectant for arbitrary test double abuse is to formulate a
 plan—literally any plan—governing their use in a codebase. Even if the team
-lands on a suboptimal approach, the risk of arbitrary test double usage to
-nullify the intended value of entire swaths of tests is far greater.
+lands on a suboptimal approach, having a consistent rule to point to can
+safeguard the team against the accumulation of inconsistent, confused tests.
 
 ### 2. Poor planning
 
@@ -50,7 +50,7 @@ that each carry significant downsides:
   artificial API servers, and the like. However, when the team decides to mock
   objects and methods using a mocking library, then the line between "what
   counts as I/O" typically becomes blurry and subjective. It can be easy to
-  misplace the goalpost, raising quesionts like, "do we fake the database
+  misplace the goalpost, raising questions like, "do we fake the database
   adapter or the query objects that interface with it?" In general, taking
   control of test data with a controlled data source is a more durable strategy
   than faking internal objects and methods that supply or transmit data on
