@@ -32,7 +32,7 @@ This bit of Ruby implements such an assertion:
 
 ### 2. The case is implicitly covered by another test
 
-Not every single behavior a of our code needs its own standalone test, so it
+Not every single behavior of our code needs its own standalone test, so it
 stands to reason that the same could be said of behaviors absent from our code.
 (In fact, you could spend a lifetime writing tests for all the things an object
 _does not do_).
@@ -74,7 +74,7 @@ is handled with `raise`/`rescue`.
 
 Keep in mind, as always with JavaScript, that tests of error handling are made
 more complex for asynchronous code, and must accomodate the API used by the
-subejct (e.g. callbacks or promises).
+subject (e.g. callbacks or promises).
 
 ## Additional Resources
 
