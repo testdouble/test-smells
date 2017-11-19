@@ -28,7 +28,7 @@ Davis](https://twitter.com/the_zenspider).
 
 This bit of Ruby implements such an assertion:
 `def assert_nothing_raised; yield; end`, as does this JavaScript:
-`assert.doesNotRaise = f => f()`.
+`assert.doesNotThrow = f => f()`.
 
 ### 2. The case is implicitly covered by another test
 
