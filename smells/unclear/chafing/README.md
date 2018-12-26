@@ -4,7 +4,7 @@
 
 A test in which the author attempts to eliminate as much textual
 duplication as possible, even if the indirection it introduces confuses
-future readers of the intention and behavior of the test
+future readers of the intention and behavior of the test.
 
 ## Known Causes
 
@@ -23,11 +23,11 @@ observe its behavior. The vast majority of work that goes into designing a test
 framework goes into enabling developers to express their intentions to future
 readers through assertion message and predictably consistent APIs.
 
-A certain amount of textual duplication may be necessary for in order for tests
+A certain amount of textual duplication may be necessary in order for tests
 to tell a complete and coherent story of how they use the subject. If the
-repitition distracts from that story, first ask if the design of the subject
+repetition distracts from that story, first ask if the design of the subject
 could be reworked to mitigate it. Next, ask if the test would be more or less
-clear if the duplicative test setup or assertion logic was extracted. If the
+clear if the duplicated test setup or assertion logic was extracted. If the
 duplication is making the story less clear, inline the abstraction so that the
 test can stand on its own to explain how it exercises the subject, even if it's
 an ugly story to tell.
@@ -43,8 +43,8 @@ the test and its subject) in order to get a full picture of the test.
 
 In particular, many test suites maintain external data fixtures and factories
 for conveniently creating a standard set of models when integration testing.
-This approach often salves the immediate pain of tests with too much setup, but
-can quickly become dumping grounds—as more tests rely on them, more complexity
+This approach often solves the immediate pain of tests with too much setup, but
+can quickly become dumping grounds — as more tests rely on them, more complexity
 is added. Moreover, the contract between the test and the subject becomes
 obscured; no one can ever simplify these abstractions without breaking a bunch
 of tests in a hard-to-understand way.
@@ -52,7 +52,7 @@ of tests in a hard-to-understand way.
 #### Deodorizer
 
 Before embracing any test-scoped abstraction that will be shared across tests,
-make certain that the root cause isn't a fixable issue in the subject's design
+make sure that the root cause isn't a fixable issue in the subject's design
 and weigh the benefits against the risks that those tests' story will be
 dilluted.
 
@@ -66,10 +66,10 @@ methods and the custom code pricing assertion method) obscure the story the test
 could be telling about what the pricing method does. Surely, at the time of its
 writing, whoever "DRYed up" the code generation into a fixture and the
 expectation into a custom assertion method was able to keep all of this in their
-head. However, as time goes one, expecting future maintainers of a test to
+head. However, as time goes on, expecting future maintainers of a test to
 juggle any more than two file listings at a time is unrealistic. Just as a
 business contract becomes orders of magnitude more complex when there are more
-than two parties at the table, so too does the contract between a test and its
+than two parties at the table, so does the contract between a test and its
 subject become unclear when some behavior is encoded in a third (much less
 fourth) file listing. Sometimes, that trade-off is worth it, but certainly not
 in this case.
