@@ -8,7 +8,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    rake (11.3.0)
+    rake (12.3.3)
     slop (3.6.0)
 
 PLATFORMS
