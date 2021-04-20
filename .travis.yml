@@ -1,6 +1,7 @@
 language: ruby
 rvm: 2.3.0
 before_install:
+  - gem install bundler -v '< 2'
   - nvm install node
   - npm i -g yarnpkg
   - yarn
