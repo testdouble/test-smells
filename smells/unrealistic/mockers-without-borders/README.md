@@ -91,7 +91,7 @@ correctly implemented to fulfill contract specified by the subject.
 
 For more commentary on when we recommend using test doubles, check out this
 chapter of the
-[testdouble.js](https://github.com/testdouble/testdouble.js/blob/master/docs/2-howto-purpose.md#purpose)
+[testdouble.js](https://github.com/testdouble/testdouble.js/blob/main/docs/2-howto-purpose.md#purpose)
 docs.
 
 ## About this Example
